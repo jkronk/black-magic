@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74DDBD35260C28BF00BE1A68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBD34260C28BF00BE1A68 /* AppDelegate.swift */; };
+		74DDBD37260C28BF00BE1A68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBD36260C28BF00BE1A68 /* ViewController.swift */; };
+		74DDBD39260C28C600BE1A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74DDBD38260C28C600BE1A68 /* Assets.xcassets */; };
+		74DDBD3C260C28C600BE1A68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74DDBD3A260C28C600BE1A68 /* Main.storyboard */; };
+		74DDBE07260C2EAE00BE1A68 /* PairingFailureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDC8260C2EAD00BE1A68 /* PairingFailureType.swift */; };
+		74DDBE08260C2EAE00BE1A68 /* BMDCameraServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDC9260C2EAD00BE1A68 /* BMDCameraServices.swift */; };
+		74DDBE09260C2EAE00BE1A68 /* BMDCameraCharacteristics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDCA260C2EAD00BE1A68 /* BMDCameraCharacteristics.swift */; };
+		74DDBE0A260C2EAE00BE1A68 /* DiscoveredPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDCB260C2EAD00BE1A68 /* DiscoveredPeripheral.swift */; };
+		74DDBE0B260C2EAE00BE1A68 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDCC260C2EAD00BE1A68 /* ConnectionManager.swift */; };
+		74DDBE0C260C2EAE00BE1A68 /* DelegateDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDCE260C2EAD00BE1A68 /* DelegateDefinitions.swift */; };
+		74DDBE0D260C2EAE00BE1A68 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDCF260C2EAD00BE1A68 /* Versions.swift */; };
+		74DDBE0E260C2EAE00BE1A68 /* CameraState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDD0260C2EAD00BE1A68 /* CameraState.swift */; };
+		74DDBE0F260C2EAE00BE1A68 /* CameraControlInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDD1260C2EAD00BE1A68 /* CameraControlInterface.swift */; };
+		74DDBE10260C2EAE00BE1A68 /* ExpectedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDD2260C2EAD00BE1A68 /* ExpectedValues.swift */; };
+		74DDBE26260C2EAE00BE1A68 /* StringFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDF0260C2EAE00BE1A68 /* StringFunctions.swift */; };
+		74DDBE27260C2EAE00BE1A68 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDF1260C2EAE00BE1A68 /* UtilityFunctions.swift */; };
+		74DDBE28260C2EAE00BE1A68 /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDF2260C2EAE00BE1A68 /* ErrorCodes.swift */; };
+		74DDBE29260C2EAE00BE1A68 /* LogFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDF3260C2EAE00BE1A68 /* LogFunctions.swift */; };
+		74DDBE2A260C2EAE00BE1A68 /* LensConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDF5260C2EAE00BE1A68 /* LensConfig.swift */; };
+		74DDBE2B260C2EAE00BE1A68 /* VideoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDF6260C2EAE00BE1A68 /* VideoConfig.swift */; };
+		74DDBE2C260C2EAE00BE1A68 /* LocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDF8260C2EAE00BE1A68 /* LocationServices.swift */; };
+		74DDBE2D260C2EAE00BE1A68 /* CCUEncodingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDFA260C2EAE00BE1A68 /* CCUEncodingFunctions.swift */; };
+		74DDBE2E260C2EAE00BE1A68 /* CCUExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDFB260C2EAE00BE1A68 /* CCUExtensions.swift */; };
+		74DDBE2F260C2EAE00BE1A68 /* CCUValidationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDFC260C2EAE00BE1A68 /* CCUValidationFunctions.swift */; };
+		74DDBE30260C2EAE00BE1A68 /* CCUDecodingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDFD260C2EAE00BE1A68 /* CCUDecodingFunctions.swift */; };
+		74DDBE31260C2EAE00BE1A68 /* CCUPacketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDFE260C2EAE00BE1A68 /* CCUPacketTypes.swift */; };
+		74DDBE32260C2EAE00BE1A68 /* TransportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE00260C2EAE00BE1A68 /* TransportInfo.swift */; };
+		74DDBE33260C2EAE00BE1A68 /* PacketWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE01260C2EAE00BE1A68 /* PacketWriter.swift */; };
+		74DDBE34260C2EAE00BE1A68 /* Timecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE02260C2EAE00BE1A68 /* Timecode.swift */; };
+		74DDBE35260C2EAE00BE1A68 /* PowerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE03260C2EAE00BE1A68 /* PowerControl.swift */; };
+		74DDBE36260C2EAE00BE1A68 /* RecordTimeWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE04260C2EAE00BE1A68 /* RecordTimeWarning.swift */; };
+		74DDBE37260C2EAE00BE1A68 /* PacketReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE05260C2EAE00BE1A68 /* PacketReader.swift */; };
+		74DDBE38260C2EAE00BE1A68 /* PeripheralInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE06260C2EAE00BE1A68 /* PeripheralInterface.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		74DDBD31260C28BF00BE1A68 /* BlackmagicControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackmagicControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74DDBD34260C28BF00BE1A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74DDBD36260C28BF00BE1A68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74DDBD38260C28C600BE1A68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74DDBD3B260C28C600BE1A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74DDBD3D260C28C600BE1A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74DDBD3E260C28C600BE1A68 /* BlackmagicControl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlackmagicControl.entitlements; sourceTree = "<group>"; };
+		74DDBDC8260C2EAD00BE1A68 /* PairingFailureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingFailureType.swift; sourceTree = "<group>"; };
+		74DDBDC9260C2EAD00BE1A68 /* BMDCameraServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMDCameraServices.swift; sourceTree = "<group>"; };
+		74DDBDCA260C2EAD00BE1A68 /* BMDCameraCharacteristics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMDCameraCharacteristics.swift; sourceTree = "<group>"; };
+		74DDBDCB260C2EAD00BE1A68 /* DiscoveredPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveredPeripheral.swift; sourceTree = "<group>"; };
+		74DDBDCC260C2EAD00BE1A68 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		74DDBDCE260C2EAD00BE1A68 /* DelegateDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateDefinitions.swift; sourceTree = "<group>"; };
+		74DDBDCF260C2EAD00BE1A68 /* Versions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Versions.swift; sourceTree = "<group>"; };
+		74DDBDD0260C2EAD00BE1A68 /* CameraState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraState.swift; sourceTree = "<group>"; };
+		74DDBDD1260C2EAD00BE1A68 /* CameraControlInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControlInterface.swift; sourceTree = "<group>"; };
+		74DDBDD2260C2EAD00BE1A68 /* ExpectedValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectedValues.swift; sourceTree = "<group>"; };
+		74DDBDF0260C2EAE00BE1A68 /* StringFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFunctions.swift; sourceTree = "<group>"; };
+		74DDBDF1260C2EAE00BE1A68 /* UtilityFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		74DDBDF2260C2EAE00BE1A68 /* ErrorCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
+		74DDBDF3260C2EAE00BE1A68 /* LogFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFunctions.swift; sourceTree = "<group>"; };
+		74DDBDF5260C2EAE00BE1A68 /* LensConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensConfig.swift; sourceTree = "<group>"; };
+		74DDBDF6260C2EAE00BE1A68 /* VideoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConfig.swift; sourceTree = "<group>"; };
+		74DDBDF8260C2EAE00BE1A68 /* LocationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServices.swift; sourceTree = "<group>"; };
+		74DDBDFA260C2EAE00BE1A68 /* CCUEncodingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCUEncodingFunctions.swift; sourceTree = "<group>"; };
+		74DDBDFB260C2EAE00BE1A68 /* CCUExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCUExtensions.swift; sourceTree = "<group>"; };
+		74DDBDFC260C2EAE00BE1A68 /* CCUValidationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCUValidationFunctions.swift; sourceTree = "<group>"; };
+		74DDBDFD260C2EAE00BE1A68 /* CCUDecodingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCUDecodingFunctions.swift; sourceTree = "<group>"; };
+		74DDBDFE260C2EAE00BE1A68 /* CCUPacketTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCUPacketTypes.swift; sourceTree = "<group>"; };
+		74DDBE00260C2EAE00BE1A68 /* TransportInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportInfo.swift; sourceTree = "<group>"; };
+		74DDBE01260C2EAE00BE1A68 /* PacketWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketWriter.swift; sourceTree = "<group>"; };
+		74DDBE02260C2EAE00BE1A68 /* Timecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timecode.swift; sourceTree = "<group>"; };
+		74DDBE03260C2EAE00BE1A68 /* PowerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerControl.swift; sourceTree = "<group>"; };
+		74DDBE04260C2EAE00BE1A68 /* RecordTimeWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTimeWarning.swift; sourceTree = "<group>"; };
+		74DDBE05260C2EAE00BE1A68 /* PacketReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketReader.swift; sourceTree = "<group>"; };
+		74DDBE06260C2EAE00BE1A68 /* PeripheralInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralInterface.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74DDBD2E260C28BF00BE1A68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		74DDBD28260C28BF00BE1A68 = {
+			isa = PBXGroup;
+			children = (
+				74DDBD33260C28BF00BE1A68 /* BlackmagicControl */,
+				74DDBD32260C28BF00BE1A68 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74DDBD32260C28BF00BE1A68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBD31260C28BF00BE1A68 /* BlackmagicControl.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74DDBD33260C28BF00BE1A68 /* BlackmagicControl */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBDCD260C2EAD00BE1A68 /* API */,
+				74DDBDC7260C2EAD00BE1A68 /* Bluetooth */,
+				74DDBDFF260C2EAE00BE1A68 /* Camera */,
+				74DDBDF9260C2EAE00BE1A68 /* CCU */,
+				74DDBDF4260C2EAE00BE1A68 /* Config */,
+				74DDBDF7260C2EAE00BE1A68 /* Location */,
+				74DDBDEF260C2EAE00BE1A68 /* Utility */,
+				74DDBD34260C28BF00BE1A68 /* AppDelegate.swift */,
+				74DDBD36260C28BF00BE1A68 /* ViewController.swift */,
+				74DDBD38260C28C600BE1A68 /* Assets.xcassets */,
+				74DDBD3A260C28C600BE1A68 /* Main.storyboard */,
+				74DDBD3D260C28C600BE1A68 /* Info.plist */,
+				74DDBD3E260C28C600BE1A68 /* BlackmagicControl.entitlements */,
+			);
+			path = BlackmagicControl;
+			sourceTree = "<group>";
+		};
+		74DDBDC7260C2EAD00BE1A68 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBDC8260C2EAD00BE1A68 /* PairingFailureType.swift */,
+				74DDBDC9260C2EAD00BE1A68 /* BMDCameraServices.swift */,
+				74DDBDCA260C2EAD00BE1A68 /* BMDCameraCharacteristics.swift */,
+				74DDBDCB260C2EAD00BE1A68 /* DiscoveredPeripheral.swift */,
+				74DDBDCC260C2EAD00BE1A68 /* ConnectionManager.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		74DDBDCD260C2EAD00BE1A68 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBDCE260C2EAD00BE1A68 /* DelegateDefinitions.swift */,
+				74DDBDCF260C2EAD00BE1A68 /* Versions.swift */,
+				74DDBDD0260C2EAD00BE1A68 /* CameraState.swift */,
+				74DDBDD1260C2EAD00BE1A68 /* CameraControlInterface.swift */,
+				74DDBDD2260C2EAD00BE1A68 /* ExpectedValues.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		74DDBDEF260C2EAE00BE1A68 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBDF0260C2EAE00BE1A68 /* StringFunctions.swift */,
+				74DDBDF1260C2EAE00BE1A68 /* UtilityFunctions.swift */,
+				74DDBDF2260C2EAE00BE1A68 /* ErrorCodes.swift */,
+				74DDBDF3260C2EAE00BE1A68 /* LogFunctions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		74DDBDF4260C2EAE00BE1A68 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBDF5260C2EAE00BE1A68 /* LensConfig.swift */,
+				74DDBDF6260C2EAE00BE1A68 /* VideoConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		74DDBDF7260C2EAE00BE1A68 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBDF8260C2EAE00BE1A68 /* LocationServices.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		74DDBDF9260C2EAE00BE1A68 /* CCU */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBDFA260C2EAE00BE1A68 /* CCUEncodingFunctions.swift */,
+				74DDBDFB260C2EAE00BE1A68 /* CCUExtensions.swift */,
+				74DDBDFC260C2EAE00BE1A68 /* CCUValidationFunctions.swift */,
+				74DDBDFD260C2EAE00BE1A68 /* CCUDecodingFunctions.swift */,
+				74DDBDFE260C2EAE00BE1A68 /* CCUPacketTypes.swift */,
+			);
+			path = CCU;
+			sourceTree = "<group>";
+		};
+		74DDBDFF260C2EAE00BE1A68 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBE00260C2EAE00BE1A68 /* TransportInfo.swift */,
+				74DDBE01260C2EAE00BE1A68 /* PacketWriter.swift */,
+				74DDBE02260C2EAE00BE1A68 /* Timecode.swift */,
+				74DDBE03260C2EAE00BE1A68 /* PowerControl.swift */,
+				74DDBE04260C2EAE00BE1A68 /* RecordTimeWarning.swift */,
+				74DDBE05260C2EAE00BE1A68 /* PacketReader.swift */,
+				74DDBE06260C2EAE00BE1A68 /* PeripheralInterface.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74DDBD30260C28BF00BE1A68 /* BlackmagicControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74DDBD41260C28C600BE1A68 /* Build configuration list for PBXNativeTarget "BlackmagicControl" */;
+			buildPhases = (
+				74DDBD2D260C28BF00BE1A68 /* Sources */,
+				74DDBD2E260C28BF00BE1A68 /* Frameworks */,
+				74DDBD2F260C28BF00BE1A68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlackmagicControl;
+			productName = BlackmagicControl;
+			productReference = 74DDBD31260C28BF00BE1A68 /* BlackmagicControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74DDBD29260C28BF00BE1A68 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					74DDBD30260C28BF00BE1A68 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 74DDBD2C260C28BF00BE1A68 /* Build configuration list for PBXProject "BlackmagicControl" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 74DDBD28260C28BF00BE1A68;
+			productRefGroup = 74DDBD32260C28BF00BE1A68 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74DDBD30260C28BF00BE1A68 /* BlackmagicControl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74DDBD2F260C28BF00BE1A68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74DDBD39260C28C600BE1A68 /* Assets.xcassets in Resources */,
+				74DDBD3C260C28C600BE1A68 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74DDBD2D260C28BF00BE1A68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74DDBE31260C2EAE00BE1A68 /* CCUPacketTypes.swift in Sources */,
+				74DDBE07260C2EAE00BE1A68 /* PairingFailureType.swift in Sources */,
+				74DDBE29260C2EAE00BE1A68 /* LogFunctions.swift in Sources */,
+				74DDBE36260C2EAE00BE1A68 /* RecordTimeWarning.swift in Sources */,
+				74DDBE38260C2EAE00BE1A68 /* PeripheralInterface.swift in Sources */,
+				74DDBE10260C2EAE00BE1A68 /* ExpectedValues.swift in Sources */,
+				74DDBE0A260C2EAE00BE1A68 /* DiscoveredPeripheral.swift in Sources */,
+				74DDBE2A260C2EAE00BE1A68 /* LensConfig.swift in Sources */,
+				74DDBE2B260C2EAE00BE1A68 /* VideoConfig.swift in Sources */,
+				74DDBE32260C2EAE00BE1A68 /* TransportInfo.swift in Sources */,
+				74DDBE0E260C2EAE00BE1A68 /* CameraState.swift in Sources */,
+				74DDBE34260C2EAE00BE1A68 /* Timecode.swift in Sources */,
+				74DDBD37260C28BF00BE1A68 /* ViewController.swift in Sources */,
+				74DDBE35260C2EAE00BE1A68 /* PowerControl.swift in Sources */,
+				74DDBE0C260C2EAE00BE1A68 /* DelegateDefinitions.swift in Sources */,
+				74DDBE0D260C2EAE00BE1A68 /* Versions.swift in Sources */,
+				74DDBE0B260C2EAE00BE1A68 /* ConnectionManager.swift in Sources */,
+				74DDBE2F260C2EAE00BE1A68 /* CCUValidationFunctions.swift in Sources */,
+				74DDBE09260C2EAE00BE1A68 /* BMDCameraCharacteristics.swift in Sources */,
+				74DDBE08260C2EAE00BE1A68 /* BMDCameraServices.swift in Sources */,
+				74DDBE2D260C2EAE00BE1A68 /* CCUEncodingFunctions.swift in Sources */,
+				74DDBE26260C2EAE00BE1A68 /* StringFunctions.swift in Sources */,
+				74DDBE0F260C2EAE00BE1A68 /* CameraControlInterface.swift in Sources */,
+				74DDBD35260C28BF00BE1A68 /* AppDelegate.swift in Sources */,
+				74DDBE28260C2EAE00BE1A68 /* ErrorCodes.swift in Sources */,
+				74DDBE33260C2EAE00BE1A68 /* PacketWriter.swift in Sources */,
+				74DDBE27260C2EAE00BE1A68 /* UtilityFunctions.swift in Sources */,
+				74DDBE2E260C2EAE00BE1A68 /* CCUExtensions.swift in Sources */,
+				74DDBE37260C2EAE00BE1A68 /* PacketReader.swift in Sources */,
+				74DDBE2C260C2EAE00BE1A68 /* LocationServices.swift in Sources */,
+				74DDBE30260C2EAE00BE1A68 /* CCUDecodingFunctions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		74DDBD3A260C28C600BE1A68 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74DDBD3B260C28C600BE1A68 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74DDBD3F260C28C600BE1A68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		74DDBD40260C28C600BE1A68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		74DDBD42260C28C600BE1A68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BlackmagicControl/BlackmagicControl.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BlackmagicControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dagr.BlackmagicControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		74DDBD43260C28C600BE1A68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BlackmagicControl/BlackmagicControl.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BlackmagicControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dagr.BlackmagicControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74DDBD2C260C28BF00BE1A68 /* Build configuration list for PBXProject "BlackmagicControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74DDBD3F260C28C600BE1A68 /* Debug */,
+				74DDBD40260C28C600BE1A68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74DDBD41260C28C600BE1A68 /* Build configuration list for PBXNativeTarget "BlackmagicControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74DDBD42260C28C600BE1A68 /* Debug */,
+				74DDBD43260C28C600BE1A68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74DDBD29260C28BF00BE1A68 /* Project object */;
+}
