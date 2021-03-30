@@ -1,18 +1,11 @@
-//
-//  AppDelegate.swift
-//  BlackmagicControl
-//
-//  Created by Shami Kronk on 3/24/21.
-//
-
 import Cocoa
 
-@main
+@NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     
-
-
+    // Central interface for all Bluetooth and CCU communication
+    let cameraControlInterface = CameraControlInterface()
+   
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -20,7 +13,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
 }
 

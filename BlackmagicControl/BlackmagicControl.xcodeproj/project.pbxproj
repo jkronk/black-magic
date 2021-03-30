@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		74DDBD35260C28BF00BE1A68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBD34260C28BF00BE1A68 /* AppDelegate.swift */; };
-		74DDBD37260C28BF00BE1A68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBD36260C28BF00BE1A68 /* ViewController.swift */; };
 		74DDBD39260C28C600BE1A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74DDBD38260C28C600BE1A68 /* Assets.xcassets */; };
 		74DDBD3C260C28C600BE1A68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74DDBD3A260C28C600BE1A68 /* Main.storyboard */; };
 		74DDBE07260C2EAE00BE1A68 /* PairingFailureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBDC8260C2EAD00BE1A68 /* PairingFailureType.swift */; };
@@ -40,12 +39,18 @@
 		74DDBE36260C2EAE00BE1A68 /* RecordTimeWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE04260C2EAE00BE1A68 /* RecordTimeWarning.swift */; };
 		74DDBE37260C2EAE00BE1A68 /* PacketReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE05260C2EAE00BE1A68 /* PacketReader.swift */; };
 		74DDBE38260C2EAE00BE1A68 /* PeripheralInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE06260C2EAE00BE1A68 /* PeripheralInterface.swift */; };
+		74DDBE3F260D096700BE1A68 /* BlackmagicSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE3E260D096700BE1A68 /* BlackmagicSlider.swift */; };
+		74DDBE43260D09F500BE1A68 /* BlackmagicSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE42260D09F500BE1A68 /* BlackmagicSliderCell.swift */; };
+		74DDBE46260D0A2100BE1A68 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74DDBE45260D0A2100BE1A68 /* Localizable.strings */; };
+		74DDBE52260FE21000BE1A68 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE51260FE21000BE1A68 /* BaseViewController.swift */; };
+		74DDBE55260FE2D500BE1A68 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE54260FE2D500BE1A68 /* MainViewController.swift */; };
+		74DDBE59261237DB00BE1A68 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE58261237DB00BE1A68 /* SelectViewController.swift */; };
+		74DDBE5D26123C0500BE1A68 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE5C26123C0500BE1A68 /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		74DDBD31260C28BF00BE1A68 /* BlackmagicControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackmagicControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DDBD34260C28BF00BE1A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74DDBD36260C28BF00BE1A68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		74DDBD38260C28C600BE1A68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74DDBD3B260C28C600BE1A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74DDBD3D260C28C600BE1A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +84,13 @@
 		74DDBE04260C2EAE00BE1A68 /* RecordTimeWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTimeWarning.swift; sourceTree = "<group>"; };
 		74DDBE05260C2EAE00BE1A68 /* PacketReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketReader.swift; sourceTree = "<group>"; };
 		74DDBE06260C2EAE00BE1A68 /* PeripheralInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralInterface.swift; sourceTree = "<group>"; };
+		74DDBE3E260D096700BE1A68 /* BlackmagicSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackmagicSlider.swift; sourceTree = "<group>"; };
+		74DDBE42260D09F500BE1A68 /* BlackmagicSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackmagicSliderCell.swift; sourceTree = "<group>"; };
+		74DDBE45260D0A2100BE1A68 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		74DDBE51260FE21000BE1A68 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		74DDBE54260FE2D500BE1A68 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		74DDBE58261237DB00BE1A68 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		74DDBE5C26123C0500BE1A68 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +123,8 @@
 		74DDBD33260C28BF00BE1A68 /* BlackmagicControl */ = {
 			isa = PBXGroup;
 			children = (
+				74DDBE49260D5E4600BE1A68 /* ViewControllers */,
+				74DDBE3D260D094B00BE1A68 /* UI */,
 				74DDBDCD260C2EAD00BE1A68 /* API */,
 				74DDBDC7260C2EAD00BE1A68 /* Bluetooth */,
 				74DDBDFF260C2EAE00BE1A68 /* Camera */,
@@ -119,7 +133,6 @@
 				74DDBDF7260C2EAE00BE1A68 /* Location */,
 				74DDBDEF260C2EAE00BE1A68 /* Utility */,
 				74DDBD34260C28BF00BE1A68 /* AppDelegate.swift */,
-				74DDBD36260C28BF00BE1A68 /* ViewController.swift */,
 				74DDBD38260C28C600BE1A68 /* Assets.xcassets */,
 				74DDBD3A260C28C600BE1A68 /* Main.storyboard */,
 				74DDBD3D260C28C600BE1A68 /* Info.plist */,
@@ -206,6 +219,27 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		74DDBE3D260D094B00BE1A68 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBE3E260D096700BE1A68 /* BlackmagicSlider.swift */,
+				74DDBE42260D09F500BE1A68 /* BlackmagicSliderCell.swift */,
+				74DDBE45260D0A2100BE1A68 /* Localizable.strings */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		74DDBE49260D5E4600BE1A68 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				74DDBE51260FE21000BE1A68 /* BaseViewController.swift */,
+				74DDBE54260FE2D500BE1A68 /* MainViewController.swift */,
+				74DDBE58261237DB00BE1A68 /* SelectViewController.swift */,
+				74DDBE5C26123C0500BE1A68 /* ContentViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74DDBD39260C28C600BE1A68 /* Assets.xcassets in Resources */,
+				74DDBE46260D0A2100BE1A68 /* Localizable.strings in Resources */,
 				74DDBD3C260C28C600BE1A68 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,22 +312,27 @@
 			files = (
 				74DDBE31260C2EAE00BE1A68 /* CCUPacketTypes.swift in Sources */,
 				74DDBE07260C2EAE00BE1A68 /* PairingFailureType.swift in Sources */,
+				74DDBE52260FE21000BE1A68 /* BaseViewController.swift in Sources */,
 				74DDBE29260C2EAE00BE1A68 /* LogFunctions.swift in Sources */,
+				74DDBE5D26123C0500BE1A68 /* ContentViewController.swift in Sources */,
 				74DDBE36260C2EAE00BE1A68 /* RecordTimeWarning.swift in Sources */,
 				74DDBE38260C2EAE00BE1A68 /* PeripheralInterface.swift in Sources */,
 				74DDBE10260C2EAE00BE1A68 /* ExpectedValues.swift in Sources */,
+				74DDBE55260FE2D500BE1A68 /* MainViewController.swift in Sources */,
 				74DDBE0A260C2EAE00BE1A68 /* DiscoveredPeripheral.swift in Sources */,
 				74DDBE2A260C2EAE00BE1A68 /* LensConfig.swift in Sources */,
+				74DDBE59261237DB00BE1A68 /* SelectViewController.swift in Sources */,
 				74DDBE2B260C2EAE00BE1A68 /* VideoConfig.swift in Sources */,
 				74DDBE32260C2EAE00BE1A68 /* TransportInfo.swift in Sources */,
 				74DDBE0E260C2EAE00BE1A68 /* CameraState.swift in Sources */,
 				74DDBE34260C2EAE00BE1A68 /* Timecode.swift in Sources */,
-				74DDBD37260C28BF00BE1A68 /* ViewController.swift in Sources */,
 				74DDBE35260C2EAE00BE1A68 /* PowerControl.swift in Sources */,
 				74DDBE0C260C2EAE00BE1A68 /* DelegateDefinitions.swift in Sources */,
 				74DDBE0D260C2EAE00BE1A68 /* Versions.swift in Sources */,
 				74DDBE0B260C2EAE00BE1A68 /* ConnectionManager.swift in Sources */,
 				74DDBE2F260C2EAE00BE1A68 /* CCUValidationFunctions.swift in Sources */,
+				74DDBE3F260D096700BE1A68 /* BlackmagicSlider.swift in Sources */,
+				74DDBE43260D09F500BE1A68 /* BlackmagicSliderCell.swift in Sources */,
 				74DDBE09260C2EAE00BE1A68 /* BMDCameraCharacteristics.swift in Sources */,
 				74DDBE08260C2EAE00BE1A68 /* BMDCameraServices.swift in Sources */,
 				74DDBE2D260C2EAE00BE1A68 /* CCUEncodingFunctions.swift in Sources */,
