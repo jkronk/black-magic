@@ -36,6 +36,8 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var iso800RadioButton: NSButton!
     @IBOutlet weak var iso1600RadioButton: NSButton!
     
+    @IBOutlet weak var autoFocusButton: NSButton!
+    
     @IBOutlet weak var gainLeftLabel: NSTextField!
     @IBOutlet weak var gainLeftSlider: BlackmagicSlider!
     @IBOutlet weak var gainRightLabel: NSTextField!
@@ -82,12 +84,19 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         irisSlider.maxValue = Double(LensConfig.fStopValues.count - 1)
         shutterSlider.minValue = 5.0
         shutterSlider.maxValue = 360.0
+        gainLeftSlider.minValue = 0.0
+        gainLeftSlider.maxValue = 1.0
+        gainRightSlider.minValue = 0.0
+        gainRightSlider.maxValue = 1.0
         
         // Assign callbacks to our sliders
         whiteBalanceSlider.setCallbacks(onTentativeValueChanged: onWhiteBalanceSliderChanged, onValueChanged: onWhiteBalanceSliderSet)
         tintSlider.setCallbacks(onTentativeValueChanged: onTintSliderChanged, onValueChanged: onTintSliderSet)
         irisSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onIrisSliderSet)
         shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
+        gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainLeftSliderSet)
+        gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainRightSliderSet)
+        
     }
     
     //==================================================
@@ -146,6 +155,17 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         shutterPresetButtons.forEach { $0.isSelected = false }
     }
     
+    func onGainLeftSliderSet(_: BlackmagicSlider) {
+        let newIndex = gainLeftSlider.floatValue
+        m_outgoingCameraControlDelegate?.onAudioGainChanged(Double(newIndex))
+        updateGainLeftWidget(newIndex)
+    }
+    
+    func onGainRightSliderSet(_: BlackmagicSlider) {
+        let newIndex = gainRightSlider.floatValue
+        m_outgoingCameraControlDelegate?.onAudioGainChanged(Double(newIndex))
+        updateGainRightWidget(newIndex)
+    }
     
     //==================================================
     //    IBActions
@@ -156,17 +176,20 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         updateISOWidgets(isoIndex)
     }
     
+    @IBAction func onAutoFocusButtonClicked(_ sender: NSButton){
+        m_outgoingCameraControlDelegate?.OnAutoFocusPressed()
+    }
     
     //==================================================
     //    UI control
     //==================================================
     func updateWhiteBalanceWidgets(_ whiteBalance: Int16) {
-        //whiteBalanceLabel.stringValue = "\(whiteBalance)K"
+        whiteBalanceLabel.stringValue = "\(whiteBalance)K"
         whiteBalanceSlider.floatValue = Float(whiteBalance)
     }
     
     func updateTintWidgets(_ tint: Int16) {
-        //tintLabel.stringValue = "\(tint)"
+        tintLabel.stringValue = "\(tint)"
         tintSlider.floatValue = Float(tint)
     }
     
@@ -192,6 +215,16 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     func updateISOWidgets(_ index: Int) {
         isoRadioButtons.forEach { $0.isSelected = false }
         isoRadioButtons[index].isSelected = true
+    }
+    
+    func updateGainLeftWidget(_ newGainLeftValue: Float){
+        gainLeftLabel.stringValue = "\(newGainLeftValue)"
+        gainLeftSlider.floatValue = newGainLeftValue
+    }
+    
+    func updateGainRightWidget(_ newGainRightValue: Float){
+        gainRightLabel.stringValue = "\(newGainRightValue)"
+        gainRightSlider.floatValue = newGainRightValue
     }
 }
 

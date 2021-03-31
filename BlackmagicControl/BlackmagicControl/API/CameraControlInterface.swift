@@ -12,6 +12,7 @@ public class CameraControlInterface:
     OutgoingRecordControlFromUIDelegate,
     OutgoingPowerFromUIDelegate,
     LocationServicesDelegate {
+    
     let m_connectionManager: ConnectionManager
     var m_peripheralInterface: PeripheralInterface?
     let m_packetReader: PacketReader
@@ -667,12 +668,21 @@ public class CameraControlInterface:
         }
     }
 
+    public func onAudioGainChanged(_ gain: Double) {
+        let fixedValue = CCUPacketTypes.CCUFixedFromFloat(gain)
+        m_packetWriter.writeAudioGain(fixedValue)
+    }
+    
     // Shutter
     public func onShutterIncremented() -> Double {
         let nextShutterValue = getNextPresetShutterValue()
         onShutterChanged(nextShutterValue)
 
         return nextShutterValue
+    }
+    
+    public func OnAutoFocusPressed(){
+        m_packetWriter.writeAutoFocusPressed()
     }
 
     public func onShutterDecremented() -> Double {

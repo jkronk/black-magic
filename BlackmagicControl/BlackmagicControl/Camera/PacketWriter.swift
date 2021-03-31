@@ -56,6 +56,11 @@ class PacketWriter {
         let command = CCUEncodingFunctions.CreateVideoSetAutoWBCommand()
         validateAndSendCCUCommand(command)
     }
+    
+    func writeAutoFocusPressed() {
+        let command = CCUEncodingFunctions.CreateLensSetAutoFocusCommand()
+        validateAndSendCCUCommand(command)
+    }
 
     func writeRecordingFormat(_ recordingFormatData: CCUPacketTypes.RecordingFormatData) {
         let command = CCUEncodingFunctions.CreateRecordingFormatCommand(recordingFormatData: recordingFormatData)
@@ -64,6 +69,13 @@ class PacketWriter {
 
     func writeIris(_ apertureValue: Int16) {
         let command = CCUEncodingFunctions.CreateFixed16Command(apertureValue, CCUPacketTypes.Category.Lens, CCUPacketTypes.LensParameter.ApertureFstop.rawValue)
+        validateAndSendCCUCommand(command)
+    }
+    
+    func writeAudioGain(_ gain: Int16){
+        let command = CCUEncodingFunctions.CreateFixed16Command(gain,
+            CCUPacketTypes.Category.Audio,
+            CCUPacketTypes.AudioParameter.InputLevels.rawValue)
         validateAndSendCCUCommand(command)
     }
 

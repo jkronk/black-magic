@@ -26,6 +26,11 @@ public struct CCUEncodingFunctions {
         return CreateVoidCommand(CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.SetAutoWB.rawValue)
     }
 
+    public static func CreateLensSetAutoFocusCommand() -> (CCUPacketTypes.Command?) {
+        return CreateVoidCommand(CCUPacketTypes.Category.Lens,
+            CCUPacketTypes.LensParameter.AutoFocus.rawValue)
+    }
+    
     public static func CreateVideoExposureCommand(value: Int32) -> (CCUPacketTypes.Command?) {
         return CreateCommand(value, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.Exposure.rawValue)
     }

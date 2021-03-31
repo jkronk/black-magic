@@ -1030,6 +1030,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="yKE-pr-b3H"/>
+                                            </connections>
                                         </button>
                                         <button fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="HEC-VF-xkJ">
                                             <rect key="frame" x="88" y="14.5" width="41" height="17"/>
@@ -1038,6 +1041,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="03D-zr-HMW"/>
+                                            </connections>
                                         </button>
                                         <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="r5l-wU-f7B">
                                             <rect key="frame" x="134" y="13.5" width="43" height="17"/>
@@ -1046,6 +1052,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="x7Z-8I-deW"/>
+                                            </connections>
                                         </button>
                                         <button fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="SLi-d2-TyI">
                                             <rect key="frame" x="177" y="14.5" width="48" height="15"/>
@@ -1054,6 +1063,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="HIy-oQ-2RH"/>
+                                            </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aem-gF-1GR">
                                             <rect key="frame" x="42" y="14.5" width="42" height="17"/>
@@ -1062,6 +1074,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="qHT-YM-Ack"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -1109,6 +1124,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onAutoFocusButtonClicked:" target="8Zi-EG-gEZ" id="NzZ-R2-Utu"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2p-gs-6lu">
                                             <rect key="frame" x="3" y="105" width="184" height="32"/>
@@ -1413,6 +1431,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="autoFocusButton" destination="An1-P9-Tug" id="DcR-LK-E3P"/>
                         <outlet property="gainLeftLabel" destination="nqO-A6-nqq" id="qL7-kh-iZU"/>
                         <outlet property="gainLeftSlider" destination="WLc-Cp-XKL" id="GxU-Vh-DQ4"/>
                         <outlet property="gainRightLabel" destination="jgY-Pa-MOU" id="OlV-DX-kJI"/>
