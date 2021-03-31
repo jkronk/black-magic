@@ -5,9 +5,16 @@ import AppKit
 
 class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
+    @IBOutlet weak var whiteBalanceLabel: NSTextField!
     @IBOutlet weak var whiteBalanceSlider: BlackmagicSlider!
+    
+    @IBOutlet weak var tintLabel: NSTextField!
     @IBOutlet weak var tintSlider: BlackmagicSlider!
+    
+    @IBOutlet weak var irisLabel: NSTextField!
     @IBOutlet weak var irisSlider: BlackmagicSlider!
+    
+    @IBOutlet weak var shutterLabel: NSTextField!
     @IBOutlet weak var shutterSlider: BlackmagicSlider!
     
     @IBOutlet weak var wbPreset1Button: NSButton!
@@ -28,6 +35,11 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var iso400RadioButton: NSButton!
     @IBOutlet weak var iso800RadioButton: NSButton!
     @IBOutlet weak var iso1600RadioButton: NSButton!
+    
+    @IBOutlet weak var gainLeftLabel: NSTextField!
+    @IBOutlet weak var gainLeftSlider: BlackmagicSlider!
+    @IBOutlet weak var gainRightLabel: NSTextField!
+    @IBOutlet weak var gainRightSlider: BlackmagicSlider!
     
     var wbPresetButtons = [NSButton]()
     var shutterPresetButtons = [NSButton]()
