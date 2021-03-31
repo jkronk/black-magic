@@ -36,6 +36,8 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var iso800RadioButton: NSButton!
     @IBOutlet weak var iso1600RadioButton: NSButton!
     
+    @IBOutlet weak var focusLabel: NSTextField!
+    
     @IBOutlet weak var gainLeftLabel: NSTextField!
     @IBOutlet weak var gainLeftSlider: BlackmagicSlider!
     @IBOutlet weak var gainRightLabel: NSTextField!
@@ -151,6 +153,10 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     func onGammaReceived(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16) {
         updateGammaWidget(Float(red), Float(green), Float(blue), Float(luma))
+    }
+    
+    func onFocusReceived(_ focus: Int16) {
+        updateFocusText(Float(focus))
     }
     
     //==================================================
@@ -294,6 +300,10 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         gammaLabelBlue.stringValue = "\(blueValue)"
         gammaSliderLuma.floatValue = lumaValue
         gammaLabelLuma.stringValue = "\(lumaValue)"
+    }
+    
+    func updateFocusText(_ focus: Float) {
+        focusLabel.stringValue = "\(focus)"
     }
 }
 

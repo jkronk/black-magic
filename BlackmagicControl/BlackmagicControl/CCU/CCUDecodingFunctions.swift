@@ -116,6 +116,8 @@ struct CCUDecodingFunctions {
             {
             case .ApertureFstop:
                 try DecodeApertureFStop(data: payloadData, respondTo: packetDecodedDelegate)
+            case .Focus:
+                try DecodeFocus(data: payloadData, respondTo: packetDecodedDelegate)
             default:
                 break
             }
@@ -135,6 +137,13 @@ struct CCUDecodingFunctions {
         }
         
         packetDecodedDelegate.onIrisReceived(fStopIndex)
+    }
+    
+    static func DecodeFocus(data: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
+        let data: [Int16] = try ConvertPayloadDataWithExpectedCount(from: data, expectedCount: 1)
+        let focusNumber: Int16 = data[0]
+        
+        packetDecodedDelegate.onFocusReceived(focusNumber)
     }
     
     //Color Correction/Gamma decoding functions

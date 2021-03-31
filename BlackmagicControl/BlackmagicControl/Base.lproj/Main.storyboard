@@ -1476,6 +1476,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="focusLabel" destination="dYZ-1x-hvZ" id="bc6-ge-l0t"/>
                         <outlet property="gainLeftLabel" destination="nqO-A6-nqq" id="qL7-kh-iZU"/>
                         <outlet property="gainLeftSlider" destination="WLc-Cp-XKL" id="GxU-Vh-DQ4"/>
                         <outlet property="gainRightLabel" destination="jgY-Pa-MOU" id="OlV-DX-kJI"/>

@@ -396,6 +396,8 @@ public class CameraControlInterface:
         }
     }
 
+    
+    
     public func onExposureReceived(_ exposure: Int32) {
     }
 	
@@ -722,6 +724,12 @@ public class CameraControlInterface:
         if addedExpectedValue {
             m_packetWriter.writeFocus(focusValue)
         }
+    }
+    
+    public func onFocusReceived(_ focus:Int16) {
+        if m_isSuspended { return }
+        
+        m_cameraControlToUIDelegate?.onFocusReceived(focus)
     }
     
     public func onShutterDecremented() -> Double {
