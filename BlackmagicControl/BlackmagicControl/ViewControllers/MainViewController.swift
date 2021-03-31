@@ -36,12 +36,16 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var iso800RadioButton: NSButton!
     @IBOutlet weak var iso1600RadioButton: NSButton!
     
-    @IBOutlet weak var autoFocusButton: NSButton!
-    
     @IBOutlet weak var gainLeftLabel: NSTextField!
     @IBOutlet weak var gainLeftSlider: BlackmagicSlider!
     @IBOutlet weak var gainRightLabel: NSTextField!
     @IBOutlet weak var gainRightSlider: BlackmagicSlider!
+    
+    @IBOutlet weak var gammaSliderRed: BlackmagicSlider!
+    @IBOutlet weak var gammaSliderGreen: BlackmagicSlider!
+    @IBOutlet weak var gammaSliderBlue: BlackmagicSlider!
+    @IBOutlet weak var gammaSliderLuma: BlackmagicSlider!
+    @IBOutlet weak var resetGammaDefaultButton: NSButton!
     
     var wbPresetButtons = [NSButton]()
     var shutterPresetButtons = [NSButton]()
@@ -88,15 +92,22 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         gainLeftSlider.maxValue = 1.0
         gainRightSlider.minValue = 0.0
         gainRightSlider.maxValue = 1.0
+        gammaSliderRed.minValue = ColorCorrectionConfig.kMinGamma
+        gammaSliderRed.maxValue = ColorCorrectionConfig.kMaxGamma
+        gammaSliderGreen.minValue = ColorCorrectionConfig.kMinGamma
+        gammaSliderGreen.maxValue = ColorCorrectionConfig.kMaxGamma
+        gammaSliderBlue.minValue = ColorCorrectionConfig.kMinGamma
+        gammaSliderBlue.maxValue = ColorCorrectionConfig.kMaxGamma
+        gammaSliderLuma.minValue = ColorCorrectionConfig.kMinGamma
+        gammaSliderLuma.maxValue = ColorCorrectionConfig.kMaxGamma
         
         // Assign callbacks to our sliders
         whiteBalanceSlider.setCallbacks(onTentativeValueChanged: onWhiteBalanceSliderChanged, onValueChanged: onWhiteBalanceSliderSet)
         tintSlider.setCallbacks(onTentativeValueChanged: onTintSliderChanged, onValueChanged: onTintSliderSet)
         irisSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onIrisSliderSet)
         shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
-        gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainLeftSliderSet)
-        gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainRightSliderSet)
-        
+        gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
+        gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
     }
     
     //==================================================
@@ -155,16 +166,12 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         shutterPresetButtons.forEach { $0.isSelected = false }
     }
     
-    func onGainLeftSliderSet(_: BlackmagicSlider) {
-        let newIndex = gainLeftSlider.floatValue
-        m_outgoingCameraControlDelegate?.onAudioGainChanged(Double(newIndex))
-        updateGainLeftWidget(newIndex)
-    }
-    
-    func onGainRightSliderSet(_: BlackmagicSlider) {
-        let newIndex = gainRightSlider.floatValue
-        m_outgoingCameraControlDelegate?.onAudioGainChanged(Double(newIndex))
-        updateGainRightWidget(newIndex)
+    //this is the preferred way when working with multi value commands
+    func onGainSliderSet(_: BlackmagicSlider) {
+        let leftValue = gainLeftSlider.floatValue
+        let rightValue = gainRightSlider.floatValue
+        m_outgoingCameraControlDelegate?.onAudioGainChanged(Double(leftValue), Double(rightValue))
+        updateGainWidget(leftValue, rightValue)
     }
     
     //==================================================
@@ -178,6 +185,15 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     @IBAction func onAutoFocusButtonClicked(_ sender: NSButton){
         m_outgoingCameraControlDelegate?.OnAutoFocusPressed()
+    }
+    
+    @IBAction func onNextFocusButtonClicked(_ sender: NSButton) {
+        //here we need to send the value to the camera, it should be between max values
+        m_outgoingCameraControlDelegate?.onFocusIncremented()
+    }
+    
+    @IBAction func onPrevFocusButtonClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onFocusDecremented()
     }
     
     //==================================================
@@ -217,14 +233,11 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         isoRadioButtons[index].isSelected = true
     }
     
-    func updateGainLeftWidget(_ newGainLeftValue: Float){
-        gainLeftLabel.stringValue = "\(newGainLeftValue)"
-        gainLeftSlider.floatValue = newGainLeftValue
-    }
-    
-    func updateGainRightWidget(_ newGainRightValue: Float){
-        gainRightLabel.stringValue = "\(newGainRightValue)"
-        gainRightSlider.floatValue = newGainRightValue
+    func updateGainWidget(_ leftValue: Float, _ rightValue: Float) {
+        gainLeftLabel.stringValue = "\(leftValue)"
+        gainLeftSlider.floatValue = leftValue
+        gainRightLabel.stringValue = "\(rightValue)"
+        gainRightSlider.floatValue = rightValue
     }
 }
 

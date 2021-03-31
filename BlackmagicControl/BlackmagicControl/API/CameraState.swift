@@ -43,6 +43,7 @@ struct CameraState {
     var shutterAngle: Double
     var ISO: Int
     var gain: Int
+    var focus: Double
     var shutterSpeed: Int32
     var recordingFormatData: CCUPacketTypes.RecordingFormatData
     var frameRateForShutterCalculations: Int16
@@ -64,6 +65,7 @@ struct CameraState {
     var autoExposureMode: CCUPacketTypes.AutoExposureMode
     var timecode: String
 
+    var expectedFocus = ExpectedValues<Int16>(errorTolerance: 0)
     var expectedWhiteBalance = ExpectedValues<Int16>(errorTolerance: 0)
     var expectedTint = ExpectedValues<Int16>(errorTolerance: 0)
     var expectedFStopIndex = ExpectedValues<Int>(errorTolerance: 0)
@@ -78,6 +80,7 @@ struct CameraState {
         customTint = 0
         autoWhiteBalancePacketsExpected = 0
         fStopIndex = 0
+        focus = 0.5
         shutterAngle = 180.0
         ISO = 200
 		gain = -6

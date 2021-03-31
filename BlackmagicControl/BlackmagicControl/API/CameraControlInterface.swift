@@ -667,10 +667,11 @@ public class CameraControlInterface:
             }
         }
     }
-
-    public func onAudioGainChanged(_ gain: Double) {
-        let fixedValue = CCUPacketTypes.CCUFixedFromFloat(gain)
-        m_packetWriter.writeAudioGain(fixedValue)
+    
+    public func onAudioGainChanged(_ gainL: Double,_ gainR: Double) {
+        let leftValue = CCUPacketTypes.CCUFixedFromFloat(gainL)
+        let rightValue = CCUPacketTypes.CCUFixedFromFloat(gainR)
+        m_packetWriter.writeAudioGain(leftValue, rightValue)
     }
     
     // Shutter
@@ -681,10 +682,36 @@ public class CameraControlInterface:
         return nextShutterValue
     }
     
-    public func OnAutoFocusPressed(){
+    public func OnAutoFocusPressed() {
         m_packetWriter.writeAutoFocusPressed()
     }
 
+    public func onFocusIncremented() {
+        var newFocus = m_cameraState.focus + 0.1
+        if newFocus > LensConfig.kMaxFocus {
+            newFocus = LensConfig.kMaxFocus
+        }
+        
+        onFocusChanged(newFocus)
+    }
+    
+    public func onFocusDecremented() {
+        var newFocus = m_cameraState.focus - 0.1
+        if newFocus < LensConfig.kMinFocus {
+            newFocus = LensConfig.kMinFocus
+        }
+        
+        onFocusChanged(newFocus)
+    }
+    
+    public func onFocusChanged(_ newFocus: Double) {
+        let focusValue = CCUPacketTypes.CCUFixedFromFloat(newFocus)
+        let addedExpectedValue = m_cameraState.expectedFocus.addExpectedValue(focusValue)
+        if addedExpectedValue {
+            m_packetWriter.writeFocus(focusValue)
+        }
+    }
+    
     public func onShutterDecremented() -> Double {
         let prevShutterValue = getPrevPresetShutterValue()
         onShutterChanged(prevShutterValue)

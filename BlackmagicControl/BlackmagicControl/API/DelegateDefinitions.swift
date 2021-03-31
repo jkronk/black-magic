@@ -176,8 +176,11 @@ public protocol OutgoingCameraControlFromUIDelegate: class {
 
     func onISOChanged(_ isoIndex: Int)
     
-    func onAudioGainChanged(_ gain: Double)
+    func onFocusIncremented()
+    func onFocusDecremented()
     func OnAutoFocusPressed()
+    
+    func onAudioGainChanged(_ gainL: Double, _ gainR: Double)
 }
 
 // Recording control

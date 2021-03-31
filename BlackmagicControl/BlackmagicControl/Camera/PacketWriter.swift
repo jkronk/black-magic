@@ -72,13 +72,18 @@ class PacketWriter {
         validateAndSendCCUCommand(command)
     }
     
-    func writeAudioGain(_ gain: Int16){
-        let command = CCUEncodingFunctions.CreateFixed16Command(gain,
-            CCUPacketTypes.Category.Audio,
-            CCUPacketTypes.AudioParameter.InputLevels.rawValue)
+    func writeAudioGain(_ gainL: Int16, _ gainR: Int16) {
+        let command = CCUEncodingFunctions.CreateAudioGainCommand(gainL, gainR)
         validateAndSendCCUCommand(command)
     }
 
+    func writeFocus(_ focus: Int16) {
+        let command = CCUEncodingFunctions.CreateFixed16Command(focus,
+            CCUPacketTypes.Category.Lens,
+            CCUPacketTypes.LensParameter.Focus.rawValue)
+        validateAndSendCCUCommand(command)
+    }
+    
     func writeShutterSpeed(_ shutter: Int32) {
         let command = CCUEncodingFunctions.CreateCommand(shutter, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.ShutterSpeed.rawValue)
         validateAndSendCCUCommand(command)

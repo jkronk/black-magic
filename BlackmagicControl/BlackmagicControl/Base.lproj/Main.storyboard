@@ -1099,6 +1099,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onPrevFocusButtonClicked:" target="8Zi-EG-gEZ" id="aOA-z5-2gE"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g05-RE-h0c">
                                             <rect key="frame" x="143" y="173" width="37" height="21"/>
@@ -1107,6 +1110,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onNextFocusButtonClicked:" target="8Zi-EG-gEZ" id="7wC-zj-1Cp"/>
+                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYZ-1x-hvZ">
                                             <rect key="frame" x="51" y="172" width="86" height="23"/>
@@ -1243,25 +1249,25 @@
                                     <rect key="frame" x="3" y="3" width="194" height="304"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6x-BM-Zc7">
+                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6x-BM-Zc7" customClass="BlackmagicSlider" customModule="BlackmagicControl" customModuleProvider="target">
                                             <rect key="frame" x="12" y="71" width="24" height="215"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="FgQ-PT-GFa"/>
+                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="FgQ-PT-GFa" customClass="BlackmagicSliderCell" customModule="BlackmagicControl" customModuleProvider="target"/>
                                         </slider>
-                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2N-l1-MCa">
+                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2N-l1-MCa" customClass="BlackmagicSlider" customModule="BlackmagicControl" customModuleProvider="target">
                                             <rect key="frame" x="112" y="71" width="24" height="215"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="Nc1-rx-eFe"/>
+                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="Nc1-rx-eFe" customClass="BlackmagicSliderCell" customModule="BlackmagicControl" customModuleProvider="target"/>
                                         </slider>
-                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W1p-KO-RHI">
+                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W1p-KO-RHI" customClass="BlackmagicSlider" customModule="BlackmagicControl" customModuleProvider="target">
                                             <rect key="frame" x="161" y="71" width="24" height="215"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="GWp-3C-3MB"/>
+                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="GWp-3C-3MB" customClass="BlackmagicSliderCell" customModule="BlackmagicControl" customModuleProvider="target"/>
                                         </slider>
-                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhe-cH-8yy">
+                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhe-cH-8yy" customClass="BlackmagicSlider" customModule="BlackmagicControl" customModuleProvider="target">
                                             <rect key="frame" x="62" y="71" width="24" height="215"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="B5G-EU-DyA"/>
+                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="B5G-EU-DyA" customClass="BlackmagicSliderCell" customModule="BlackmagicControl" customModuleProvider="target"/>
                                         </slider>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hnb-bw-mnC">
                                             <rect key="frame" x="7" y="8" width="188" height="32"/>
@@ -1436,6 +1442,10 @@
                         <outlet property="gainLeftSlider" destination="WLc-Cp-XKL" id="GxU-Vh-DQ4"/>
                         <outlet property="gainRightLabel" destination="jgY-Pa-MOU" id="OlV-DX-kJI"/>
                         <outlet property="gainRightSlider" destination="R56-SH-6nZ" id="XFN-bP-OR7"/>
+                        <outlet property="gammaSliderBlue" destination="Q2N-l1-MCa" id="bbc-KB-yS9"/>
+                        <outlet property="gammaSliderGreen" destination="fhe-cH-8yy" id="ttr-rm-qNm"/>
+                        <outlet property="gammaSliderRed" destination="j6x-BM-Zc7" id="4Vg-RA-P5j"/>
+                        <outlet property="gammasliderLuma" destination="W1p-KO-RHI" id="FIQ-5J-Ko0"/>
                         <outlet property="irisLabel" destination="dr0-xg-RAc" id="2sH-Ol-iYL"/>
                         <outlet property="irisSlider" destination="lge-N2-AFj" id="S91-sf-OIR"/>
                         <outlet property="iso100RadioButton" destination="ZZx-O9-mYy" id="wCA-1h-Zgb"/>
@@ -1443,6 +1453,7 @@
                         <outlet property="iso200RadioButton" destination="aem-gF-1GR" id="wCY-I8-d9c"/>
                         <outlet property="iso400RadioButton" destination="HEC-VF-xkJ" id="Lui-9c-MIL"/>
                         <outlet property="iso800RadioButton" destination="r5l-wU-f7B" id="dvn-cM-x1Z"/>
+                        <outlet property="resetGammaDefaultButton" destination="Hnb-bw-mnC" id="qT8-3B-9rA"/>
                         <outlet property="shutterLabel" destination="T3N-Bo-s0k" id="zyU-O4-bW2"/>
                         <outlet property="shutterPreset1Button" destination="SCk-hO-bAm" id="kwf-rK-eDJ"/>
                         <outlet property="shutterPreset2Button" destination="UnZ-WG-2IX" id="cmR-N9-a3N"/>

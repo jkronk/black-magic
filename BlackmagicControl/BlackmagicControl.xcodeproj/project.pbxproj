@@ -47,6 +47,7 @@
 		74DDBE59261237DB00BE1A68 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE58261237DB00BE1A68 /* SelectViewController.swift */; };
 		74DDBE5D26123C0500BE1A68 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE5C26123C0500BE1A68 /* ContentViewController.swift */; };
 		74DDBE652613D6FE00BE1A68 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE642613D6FE00BE1A68 /* Extensions.swift */; };
+		74DDBE6B2614F67B00BE1A68 /* ColorCorrectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE6A2614F67B00BE1A68 /* ColorCorrectionConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		74DDBE58261237DB00BE1A68 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		74DDBE5C26123C0500BE1A68 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		74DDBE642613D6FE00BE1A68 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		74DDBE6A2614F67B00BE1A68 /* ColorCorrectionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCorrectionConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				74DDBDF5260C2EAE00BE1A68 /* LensConfig.swift */,
 				74DDBDF6260C2EAE00BE1A68 /* VideoConfig.swift */,
+				74DDBE6A2614F67B00BE1A68 /* ColorCorrectionConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				74DDBE34260C2EAE00BE1A68 /* Timecode.swift in Sources */,
 				74DDBE35260C2EAE00BE1A68 /* PowerControl.swift in Sources */,
 				74DDBE0C260C2EAE00BE1A68 /* DelegateDefinitions.swift in Sources */,
+				74DDBE6B2614F67B00BE1A68 /* ColorCorrectionConfig.swift in Sources */,
 				74DDBE0D260C2EAE00BE1A68 /* Versions.swift in Sources */,
 				74DDBE0B260C2EAE00BE1A68 /* ConnectionManager.swift in Sources */,
 				74DDBE2F260C2EAE00BE1A68 /* CCUValidationFunctions.swift in Sources */,
