@@ -46,6 +46,7 @@
 		74DDBE55260FE2D500BE1A68 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE54260FE2D500BE1A68 /* MainViewController.swift */; };
 		74DDBE59261237DB00BE1A68 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE58261237DB00BE1A68 /* SelectViewController.swift */; };
 		74DDBE5D26123C0500BE1A68 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE5C26123C0500BE1A68 /* ContentViewController.swift */; };
+		74DDBE652613D6FE00BE1A68 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDBE642613D6FE00BE1A68 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		74DDBE54260FE2D500BE1A68 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		74DDBE58261237DB00BE1A68 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		74DDBE5C26123C0500BE1A68 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		74DDBE642613D6FE00BE1A68 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				74DDBDF1260C2EAE00BE1A68 /* UtilityFunctions.swift */,
 				74DDBDF2260C2EAE00BE1A68 /* ErrorCodes.swift */,
 				74DDBDF3260C2EAE00BE1A68 /* LogFunctions.swift */,
+				74DDBE642613D6FE00BE1A68 /* Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				74DDBE59261237DB00BE1A68 /* SelectViewController.swift in Sources */,
 				74DDBE2B260C2EAE00BE1A68 /* VideoConfig.swift in Sources */,
 				74DDBE32260C2EAE00BE1A68 /* TransportInfo.swift in Sources */,
+				74DDBE652613D6FE00BE1A68 /* Extensions.swift in Sources */,
 				74DDBE0E260C2EAE00BE1A68 /* CameraState.swift in Sources */,
 				74DDBE34260C2EAE00BE1A68 /* Timecode.swift in Sources */,
 				74DDBE35260C2EAE00BE1A68 /* PowerControl.swift in Sources */,
