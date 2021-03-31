@@ -181,6 +181,7 @@ public protocol OutgoingCameraControlFromUIDelegate: class {
     func OnAutoFocusPressed()
     
     func onAudioGainChanged(_ gainL: Double, _ gainR: Double)
+    func onGammaChanged(_ red: Double, _ green: Double, _ blue: Double, _ luma: Double)
 }
 
 // Recording control

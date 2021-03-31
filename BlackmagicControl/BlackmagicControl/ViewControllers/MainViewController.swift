@@ -108,6 +108,10 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
         gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
         gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
+        gammaSliderRed.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        gammaSliderGreen.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        gammaSliderBlue.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        gammaSliderLuma.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
     }
     
     //==================================================
@@ -174,6 +178,16 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         updateGainWidget(leftValue, rightValue)
     }
     
+    func onGammaSliderSet(_: BlackmagicSlider) {
+        let redValue = gammaSliderRed.floatValue
+        let greenValue = gammaSliderGreen.floatValue
+        let blueValue = gammaSliderBlue.floatValue
+        let lumaValue = gammaSliderLuma.floatValue
+        
+        m_outgoingCameraControlDelegate?.onGammaChanged(Double(redValue), Double(greenValue), Double(blueValue), Double(lumaValue))
+        //updateGammaWidget()
+    }
+    
     //==================================================
     //    IBActions
     //==================================================
@@ -211,8 +225,8 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     func updateIrisWidgets(_ newIrisIndex: Int) {
         if newIrisIndex >= 0 && newIrisIndex < LensConfig.fStopValues.count {
-            //let fStop = LensConfig.fStopValues[newIrisIndex]
-            //irisLabel.stringValue = LensConfig.GetFStopString(fStop)
+            let fStop = LensConfig.fStopValues[newIrisIndex]
+            irisLabel.stringValue = LensConfig.GetFStopString(fStop)
             irisSlider.floatValue = Float(newIrisIndex)
         }
     }
@@ -221,10 +235,10 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         shutterSlider.floatValue = newShutterValue
         
         if (m_shutterValueIsAngle) {
-            //shutterLabel.stringValue = "\(newShutterValue.getStringValue())°"
+            shutterLabel.stringValue = "\(newShutterValue.getStringValue())°"
         }
         else {
-            //shutterLabel.stringValue = "1/\(Int(newShutterValue))"
+            shutterLabel.stringValue = "1/\(Int(newShutterValue))"
         }
     }
     

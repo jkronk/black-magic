@@ -38,6 +38,22 @@ public struct CCUEncodingFunctions {
         return command
     }
 
+    public static func CreateGammaCommand(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16) -> (CCUPacketTypes.Command?) {
+        let dataArray: [Int16] = [red, green, blue, luma]
+        let payloadData: [UInt8] = UtilityFunctions.ToByteArrayFromArray(dataArray)
+        
+        let command = CCUPacketTypes.InitCommand(
+            target: CCUPacketTypes.kBroadcastTarget,
+            commandId: CCUPacketTypes.CommandID.ChangeConfiguration,
+            category: CCUPacketTypes.Category.ColorCorrection,
+            parameter: CCUPacketTypes.ColorCorrectionParameter.GammaAdjust.rawValue,
+            operationType: CCUPacketTypes.OperationType.AssignValue,
+            dataType: CCUPacketTypes.DataTypes.kInt16,
+            data: payloadData)
+        
+        return command
+    }
+    
     public static func CreateVideoSetAutoWBCommand() -> (CCUPacketTypes.Command?) {
         return CreateVoidCommand(CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.SetAutoWB.rawValue)
     }

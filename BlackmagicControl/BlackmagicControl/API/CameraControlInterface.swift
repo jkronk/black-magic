@@ -674,6 +674,14 @@ public class CameraControlInterface:
         m_packetWriter.writeAudioGain(leftValue, rightValue)
     }
     
+    public func onGammaChanged(_ red: Double, _ green: Double, _ blue: Double, _ luma: Double) {
+        let redValue = CCUPacketTypes.CCUFixedFromFloat(red)
+        let greenValue = CCUPacketTypes.CCUFixedFromFloat(green)
+        let blueValue = CCUPacketTypes.CCUFixedFromFloat(blue)
+        let lumaValue = CCUPacketTypes.CCUFixedFromFloat(luma)
+        m_packetWriter.writeGamma(redValue, greenValue, blueValue, lumaValue)
+    }
+    
     // Shutter
     public func onShutterIncremented() -> Double {
         let nextShutterValue = getNextPresetShutterValue()

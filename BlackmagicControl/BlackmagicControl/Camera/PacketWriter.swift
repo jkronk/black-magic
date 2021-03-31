@@ -76,6 +76,11 @@ class PacketWriter {
         let command = CCUEncodingFunctions.CreateAudioGainCommand(gainL, gainR)
         validateAndSendCCUCommand(command)
     }
+    
+    func writeGamma(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16) {
+        let command = CCUEncodingFunctions.CreateGammaCommand(red, green, blue, luma)
+        validateAndSendCCUCommand(command)
+    }
 
     func writeFocus(_ focus: Int16) {
         let command = CCUEncodingFunctions.CreateFixed16Command(focus,
