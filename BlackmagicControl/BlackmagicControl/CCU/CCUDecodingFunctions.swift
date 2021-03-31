@@ -63,6 +63,8 @@ struct CCUDecodingFunctions {
             try DecodeMetadataCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         case .ColorCorrection:
             try DecodeColorCorrectionCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
+        case .Audio:
+            try DecodeAudioCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         default:
             break
         }
@@ -172,6 +174,31 @@ struct CCUDecodingFunctions {
         let lumaGamma: Int16 = data[3]
         
         packetDecodedDelegate.onGammaReceived(redGamma, greenGamma, blueGamma, lumaGamma)
+    }
+    
+    static func DecodeAudioCategory(parameter: UInt8, payloadData: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
+        let parameterType = CCUPacketTypes.AudioParameter(rawValue: parameter)
+        if parameterType != nil {
+            switch parameterType!
+            {
+            case .InputLevels:
+                try DecodeAudioGain(data: payloadData, respondTo: packetDecodedDelegate)
+            default:
+                break
+            }
+        } else {
+            Logger.LogWithInfo("Invalid value for AudioParameter: \(parameter).")
+            throw CCUGeneralError.InvalidParameter
+        }
+    }
+    
+    static func DecodeAudioGain(data: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
+        let data: [Int16] = try ConvertPayloadDataWithExpectedCount(from: data, expectedCount: 2)
+        
+        let gainL: Int16 = data[0]
+        let gainR: Int16 = data[1]
+        
+        packetDecodedDelegate.onAudioGainReceived(gainL, gainR)
     }
     
     // Video Category decoding functions

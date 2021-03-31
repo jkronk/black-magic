@@ -97,6 +97,7 @@ public protocol PacketDecodedDelegate: class {
     func onSlateForTypeReceived(_ slateForType: CCUPacketTypes.MetadataSlateForType)
     func onGammaReceived(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma:Int16)
     func onFocusReceived(_ focus: Int16)
+    func onAudioGainReceived(_ gainL: Int16, _ gainR: Int16)
 }
 
 protocol PacketEncodedDelegate: class {
@@ -153,6 +154,7 @@ public protocol IncomingCameraControlToUIDelegate: class {
 	func setShutterControlEnabled(_ enabled: Bool)
     func onGammaReceived(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16)
     func onFocusReceived(_ focus: Int16)
+    func onAudioGainReceived(_ gainL: Int16, _ gainR: Int16)
 }
 
 public protocol OutgoingCameraControlFromUIDelegate: class {
@@ -267,6 +269,7 @@ public extension IncomingCameraControlToUIDelegate {
 	func setShutterControlEnabled(_ enabled: Bool) {}
     func onGammaReceived(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16) {}
     func onFocusReceived(_ focus: Int16) {}
+    func onAudioGainReceived(_ gainL: Int16, _ gainR: Int16) {}
 }
 
 public extension IncomingRecordControlToUIDelegate {

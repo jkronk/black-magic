@@ -688,6 +688,10 @@ public class CameraControlInterface:
         m_cameraControlToUIDelegate?.onGammaReceived(red, green, blue, luma)
     }
     
+    public func onAudioGainReceived(_ gainL: Int16, _ gainR: Int16) {
+        m_cameraControlToUIDelegate?.onAudioGainReceived(gainL, gainR)
+    }
+    
     // Shutter
     public func onShutterIncremented() -> Double {
         let nextShutterValue = getNextPresetShutterValue()
@@ -727,8 +731,6 @@ public class CameraControlInterface:
     }
     
     public func onFocusReceived(_ focus:Int16) {
-        if m_isSuspended { return }
-        
         m_cameraControlToUIDelegate?.onFocusReceived(focus)
     }
     

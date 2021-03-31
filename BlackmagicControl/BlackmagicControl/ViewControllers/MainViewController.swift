@@ -159,6 +159,10 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         updateFocusText(Float(focus))
     }
     
+    func onAudioGainReceived(_ gainL: Int16, _ gainR: Int16) {
+        updateGainWidget(Float(gainL), Float(gainR))
+    }
+    
     //==================================================
     //    BlackmagicSlider callbacks
     //==================================================
