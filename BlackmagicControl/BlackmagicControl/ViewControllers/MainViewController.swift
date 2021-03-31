@@ -41,11 +41,15 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var gainRightLabel: NSTextField!
     @IBOutlet weak var gainRightSlider: BlackmagicSlider!
     
+    @IBOutlet weak var gammaLabelRed: NSTextField!
+    @IBOutlet weak var gammaLabelGreen: NSTextField!
+    @IBOutlet weak var gammaLabelBlue: NSTextField!
+    @IBOutlet weak var gammaLabelLuma: NSTextField!
+    
     @IBOutlet weak var gammaSliderRed: BlackmagicSlider!
     @IBOutlet weak var gammaSliderGreen: BlackmagicSlider!
     @IBOutlet weak var gammaSliderBlue: BlackmagicSlider!
     @IBOutlet weak var gammaSliderLuma: BlackmagicSlider!
-    @IBOutlet weak var resetGammaDefaultButton: NSButton!
     
     var wbPresetButtons = [NSButton]()
     var shutterPresetButtons = [NSButton]()
@@ -127,6 +131,28 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         updateIrisWidgets(fStopIndex)
     }
     
+    func onISOReceived(_ isoIndex: Int) {
+        updateISOWidgets(isoIndex)
+    }
+        
+    func onShutterAngleReceived(_ shutterAngle: Double) {
+        m_shutterValueIsAngle = true
+        shutterSlider.minValue = VideoConfig.kShutterAngleMin
+        shutterSlider.maxValue = VideoConfig.kShutterAngleMax
+        updateShutterWidgets(Float(shutterAngle))
+    }
+    
+    func onShutterSpeedReceived(_ shutterSpeed: Int32) {
+        m_shutterValueIsAngle = false
+        shutterSlider.minValue = Double(VideoConfig.kShutterSpeedMin)
+        shutterSlider.maxValue = Double(VideoConfig.kShutterSpeedMax)
+        updateShutterWidgets(Float(shutterSpeed))
+    }
+    
+    func onGammaReceived(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16) {
+        updateGammaWidget(Float(red), Float(green), Float(blue), Float(luma))
+    }
+    
     //==================================================
     //    BlackmagicSlider callbacks
     //==================================================
@@ -185,7 +211,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         let lumaValue = gammaSliderLuma.floatValue
         
         m_outgoingCameraControlDelegate?.onGammaChanged(Double(redValue), Double(greenValue), Double(blueValue), Double(lumaValue))
-        //updateGammaWidget()
+        updateGammaWidget(redValue, greenValue, blueValue, lumaValue)
     }
     
     //==================================================
@@ -208,6 +234,11 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     @IBAction func onPrevFocusButtonClicked(_ sender: NSButton) {
         m_outgoingCameraControlDelegate?.onFocusDecremented()
+    }
+    
+    @IBAction func onResetGammaButtonClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onGammaChanged(0.0, 0.0, 0.0, 0.0)
+        updateGammaWidget(0.0, 0.0, 0.0, 0.0)
     }
     
     //==================================================
@@ -252,6 +283,17 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         gainLeftSlider.floatValue = leftValue
         gainRightLabel.stringValue = "\(rightValue)"
         gainRightSlider.floatValue = rightValue
+    }
+    
+    func updateGammaWidget(_ redValue: Float, _ greenValue: Float,_ blueValue: Float,_ lumaValue: Float) {
+        gammaSliderRed.floatValue = redValue
+        gammaLabelRed.stringValue = "\(redValue)"
+        gammaSliderGreen.floatValue = greenValue
+        gammaLabelGreen.stringValue = "\(greenValue)"
+        gammaSliderBlue.floatValue = blueValue
+        gammaLabelBlue.stringValue = "\(blueValue)"
+        gammaSliderLuma.floatValue = lumaValue
+        gammaLabelLuma.stringValue = "\(lumaValue)"
     }
 }
 

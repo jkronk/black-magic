@@ -52,6 +52,7 @@ Take.VFX = "VFX";
 Take.SER = "SER";
 
 ISOGain.ISOTitle = "ISO";
+ISOGain.ISO100 = "100";
 ISOGain.ISO200 = "200";
 ISOGain.ISO400 = "400";
 ISOGain.ISO800 = "800";

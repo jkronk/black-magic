@@ -1276,6 +1276,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onResetGammaButtonClicked:" target="8Zi-EG-gEZ" id="xw6-yD-xS6"/>
+                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVV-oX-RTC">
                                             <rect key="frame" x="10" y="53" width="28" height="16"/>
@@ -1308,6 +1311,42 @@
                                             <rect key="frame" x="154" y="53" width="38" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Luma" id="Y7B-92-0pV">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXw-TG-70O">
+                                            <rect key="frame" x="13" y="288" width="23" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="C2w-ON-iBe">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d08-Ir-bmZ">
+                                            <rect key="frame" x="63" y="288" width="23" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="j7u-po-JLm">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iQw-qw-o3E">
+                                            <rect key="frame" x="113" y="288" width="23" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="vFo-oH-3Vx">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooJ-2V-Bxk">
+                                            <rect key="frame" x="162" y="288" width="23" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="sJF-oj-J9Y">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1437,15 +1476,18 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="autoFocusButton" destination="An1-P9-Tug" id="DcR-LK-E3P"/>
                         <outlet property="gainLeftLabel" destination="nqO-A6-nqq" id="qL7-kh-iZU"/>
                         <outlet property="gainLeftSlider" destination="WLc-Cp-XKL" id="GxU-Vh-DQ4"/>
                         <outlet property="gainRightLabel" destination="jgY-Pa-MOU" id="OlV-DX-kJI"/>
                         <outlet property="gainRightSlider" destination="R56-SH-6nZ" id="XFN-bP-OR7"/>
+                        <outlet property="gammaLabelBlue" destination="iQw-qw-o3E" id="daU-1v-lSk"/>
+                        <outlet property="gammaLabelGreen" destination="d08-Ir-bmZ" id="hS2-6b-ILA"/>
+                        <outlet property="gammaLabelLuma" destination="ooJ-2V-Bxk" id="y2k-QV-Pj3"/>
+                        <outlet property="gammaLabelRed" destination="oXw-TG-70O" id="CVc-JW-2oE"/>
                         <outlet property="gammaSliderBlue" destination="Q2N-l1-MCa" id="bbc-KB-yS9"/>
                         <outlet property="gammaSliderGreen" destination="fhe-cH-8yy" id="ttr-rm-qNm"/>
+                        <outlet property="gammaSliderLuma" destination="W1p-KO-RHI" id="swf-Cf-LGM"/>
                         <outlet property="gammaSliderRed" destination="j6x-BM-Zc7" id="4Vg-RA-P5j"/>
-                        <outlet property="gammasliderLuma" destination="W1p-KO-RHI" id="FIQ-5J-Ko0"/>
                         <outlet property="irisLabel" destination="dr0-xg-RAc" id="2sH-Ol-iYL"/>
                         <outlet property="irisSlider" destination="lge-N2-AFj" id="S91-sf-OIR"/>
                         <outlet property="iso100RadioButton" destination="ZZx-O9-mYy" id="wCA-1h-Zgb"/>
@@ -1453,7 +1495,6 @@
                         <outlet property="iso200RadioButton" destination="aem-gF-1GR" id="wCY-I8-d9c"/>
                         <outlet property="iso400RadioButton" destination="HEC-VF-xkJ" id="Lui-9c-MIL"/>
                         <outlet property="iso800RadioButton" destination="r5l-wU-f7B" id="dvn-cM-x1Z"/>
-                        <outlet property="resetGammaDefaultButton" destination="Hnb-bw-mnC" id="qT8-3B-9rA"/>
                         <outlet property="shutterLabel" destination="T3N-Bo-s0k" id="zyU-O4-bW2"/>
                         <outlet property="shutterPreset1Button" destination="SCk-hO-bAm" id="kwf-rK-eDJ"/>
                         <outlet property="shutterPreset2Button" destination="UnZ-WG-2IX" id="cmR-N9-a3N"/>

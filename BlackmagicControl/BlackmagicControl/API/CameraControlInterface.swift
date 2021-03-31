@@ -682,6 +682,10 @@ public class CameraControlInterface:
         m_packetWriter.writeGamma(redValue, greenValue, blueValue, lumaValue)
     }
     
+    public func onGammaReceived(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16) {
+        m_cameraControlToUIDelegate?.onGammaReceived(red, green, blue, luma)
+    }
+    
     // Shutter
     public func onShutterIncremented() -> Double {
         let nextShutterValue = getNextPresetShutterValue()

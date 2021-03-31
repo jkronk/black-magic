@@ -61,6 +61,8 @@ struct CCUDecodingFunctions {
             try DecodeMediaCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         case .Metadata:
             try DecodeMetadataCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
+        case .ColorCorrection:
+            try DecodeColorCorrectionCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         default:
             break
         }
@@ -122,7 +124,7 @@ struct CCUDecodingFunctions {
             throw CCUGeneralError.InvalidParameter
         }
     }
-
+    
     static func DecodeApertureFStop(data: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
         let data: [Int16] = try ConvertPayloadDataWithExpectedCount(from: data, expectedCount: 1)
         let apertureNumber: Int16 = data[0]
@@ -134,7 +136,35 @@ struct CCUDecodingFunctions {
         
         packetDecodedDelegate.onIrisReceived(fStopIndex)
     }
-
+    
+    //Color Correction/Gamma decoding functions
+    static func DecodeColorCorrectionCategory(parameter: UInt8, payloadData: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
+        let parameterType = CCUPacketTypes.ColorCorrectionParameter(rawValue: parameter)
+        if parameterType != nil {
+            switch parameterType!
+            {
+            case .GammaAdjust:
+                try DecodeGammaAdjust(data: payloadData, respondTo: packetDecodedDelegate)
+            default:
+                break
+            }
+        } else {
+            Logger.LogWithInfo("Invalid value for ColorCorrectionParameter: \(parameter).")
+            throw CCUGeneralError.InvalidParameter
+        }
+    }
+    
+    static func DecodeGammaAdjust(data: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
+        let data: [Int16] = try ConvertPayloadDataWithExpectedCount(from: data, expectedCount: 4)
+        
+        let redGamma: Int16 = data[0]
+        let greenGamma: Int16 = data[1]
+        let blueGamma: Int16 = data[2]
+        let lumaGamma: Int16 = data[3]
+        
+        packetDecodedDelegate.onGammaReceived(redGamma, greenGamma, blueGamma, lumaGamma)
+    }
+    
     // Video Category decoding functions
     static func DecodeVideoCategory(parameter: UInt8, payloadData: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
         let parameterType = CCUPacketTypes.VideoParameter(rawValue: parameter)
