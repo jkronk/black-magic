@@ -31,7 +31,7 @@ public struct VideoConfig {
 
     public static let kSentSensorGainBase: UInt16 = 100
     public static let kReceivedSensorGainBase: UInt16 = 200
-    public static let kISOValues: [Int] = [200, 400, 800, 1600]
+    public static let kISOValues: [Int] = [100, 200, 400, 800, 1600]
 	public static let kGainValues: [Int] = [-6, 0, 6, 12]
 
     public static let kShutterAngles: [Double] = [11.2, 15.0, 22.5, 30.0, 37.5, 45.0, 60.0, 72.0, 75.0, 90.0, 108.0, 120.0, 144.0, 150.0, 172.8, 180.0, 216.0, 270.0, 324.0, 360.0]

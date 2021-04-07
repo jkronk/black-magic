@@ -7,7 +7,7 @@ public struct CCUEncodingFunctions {
     }
 
     public static func CreateFocusAssistCommand(_ focusAssistMethod: Int32, _ focusLineColour: Int32) -> (CCUPacketTypes.Command?) {
-        let dataArray: [Int32] = [focusAssistMethod, focusLineColour]
+        let dataArray: [Int8] = [Int8(focusAssistMethod), Int8(focusLineColour)]
         let payloadData: [UInt8] = UtilityFunctions.ToByteArrayFromArray(dataArray)
 
         let command = CCUPacketTypes.InitCommand(
@@ -88,7 +88,7 @@ public struct CCUEncodingFunctions {
     }
     
     public static func CreateCodecCommand(_ codec: Int, _ codecVariant: Int) -> (CCUPacketTypes.Command?) {
-        let dataArray: [Int] = [codec, codecVariant]
+        let dataArray: [Int8] = [Int8(codec), Int8(codecVariant)]
         let payloadData: [UInt8] = UtilityFunctions.ToByteArrayFromArray(dataArray)
         
         let command = CCUPacketTypes.InitCommand(

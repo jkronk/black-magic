@@ -432,7 +432,7 @@ public class CameraControlInterface:
         
         if m_isSuspended { return }
 		
-        if let isoIndex: Int = VideoConfig.kISOValues.index(of: iso) {
+        if let isoIndex: Int = VideoConfig.kISOValues.firstIndex(of: iso) {
             m_cameraControlToUIDelegate?.onISOReceived(isoIndex)
         }
     }
@@ -443,7 +443,7 @@ public class CameraControlInterface:
 		
 		if m_isSuspended { return }
 		
-		if let gainIndex: Int = VideoConfig.kGainValues.index(of: gain) {
+		if let gainIndex: Int = VideoConfig.kGainValues.firstIndex(of: gain) {
 			m_cameraControlToUIDelegate?.onGainReceived(gainIndex)
 		}
 	}
@@ -756,7 +756,10 @@ public class CameraControlInterface:
     }
     
     public func onFocusReceived(_ focus:Int16) {
-        m_cameraControlToUIDelegate?.onFocusReceived(focus)
+        let wasFocusExpected = m_cameraState.expectedFocus.removeUpToExpectedValue(focus)
+        if !wasFocusExpected {
+            m_cameraControlToUIDelegate?.onFocusReceived(focus)
+        }
     }
     
     public func onShutterDecremented() -> Double {

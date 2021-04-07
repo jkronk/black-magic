@@ -327,8 +327,8 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     }
     
     @IBAction func comboCodecSelectionChanged(_ sender: NSComboBox) {
-        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return
-        }
+        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
+        
         cmbCodecVariant.removeAllItems()
         if sender.indexOfSelectedItem == 0 {
             cmbCodecVariant.addItems(withObjectValues: ["Uncompressed", "3:1", "4:1"])
@@ -344,9 +344,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     }
     
     @IBAction func cmbCodecVariantSelectionChanged(_ sender: NSComboBox) {
-        
-        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return
-        }
+        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
         
         m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
     }
