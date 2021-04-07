@@ -6,6 +6,22 @@ public struct CCUEncodingFunctions {
         return CreateCommand(value, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.SensorGain.rawValue)
     }
 
+    public static func CreateFocusAssistCommand(_ focusAssistMethod: Int32, _ focusLineColour: Int32) -> (CCUPacketTypes.Command?) {
+        let dataArray: [Int32] = [focusAssistMethod, focusLineColour]
+        let payloadData: [UInt8] = UtilityFunctions.ToByteArrayFromArray(dataArray)
+
+        let command = CCUPacketTypes.InitCommand(
+            target: CCUPacketTypes.kBroadcastTarget,
+            commandId: CCUPacketTypes.CommandID.ChangeConfiguration,
+            category: CCUPacketTypes.Category.Display,
+            parameter: CCUPacketTypes.DisplayParameter.FocusAssist.rawValue,
+            operationType: CCUPacketTypes.OperationType.AssignValue,
+            dataType: CCUPacketTypes.DataTypes.kInt8,
+            data: payloadData)
+
+        return command
+    }
+    
     public static func CreateVideoWhiteBalanceCommand(_ whiteBalance: Int16, _ tint: Int16) -> (CCUPacketTypes.Command?) {
         let dataArray: [Int16] = [whiteBalance, tint]
         let payloadData: [UInt8] = UtilityFunctions.ToByteArrayFromArray(dataArray)

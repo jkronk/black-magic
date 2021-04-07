@@ -254,17 +254,53 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     }
     
     @IBAction func onNextFocusButtonClicked(_ sender: NSButton) {
-        //here we need to send the value to the camera, it should be between max values
-        m_outgoingCameraControlDelegate?.onFocusIncremented()
+        if let newFocus = m_outgoingCameraControlDelegate?.onFocusIncremented() {
+            updateFocusText(Float(newFocus))
+        }
     }
     
     @IBAction func onPrevFocusButtonClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onFocusDecremented()
+        if let newFocus = m_outgoingCameraControlDelegate?.onFocusDecremented() {
+            updateFocusText(Float(newFocus))
+        }
+    }
+    
+    @IBAction func onFocusPeakClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onFocusPeakPressed()
+    }
+    
+    @IBAction func onFocusRedClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onFocusAssistColorPressed(CCUPacketTypes.DisplayFocusAssistColour.Red.rawValue)
+    }
+    
+    @IBAction func onFocusGreenClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onFocusAssistColorPressed(CCUPacketTypes.DisplayFocusAssistColour.Green.rawValue)
+    }
+    
+    @IBAction func onFocusWhiteClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onFocusAssistColorPressed(CCUPacketTypes.DisplayFocusAssistColour.White.rawValue)
     }
     
     @IBAction func onResetGammaButtonClicked(_ sender: NSButton) {
         m_outgoingCameraControlDelegate?.onGammaChanged(0.0, 0.0, 0.0, 0.0)
         updateGammaWidget(0.0, 0.0, 0.0, 0.0)
+    }
+    
+    @IBAction func onWhiteBalancePresetButtonClicked(_ sender: NSButton) {
+        let currentlySelected = !sender.isSelected
+        let selectedButtons = wbPresetButtons.filter { return $0.isSelected }
+        let saveCustomValues = selectedButtons.count != 0
+        wbPresetButtons.forEach { $0.isSelected = false }
+
+        let presetIndex = sender.tag
+        let newValues: (whiteBalance: Int16, tint: Int16)? = m_outgoingCameraControlDelegate?.onWhiteBalancePresetPressed(presetIndex, currentlySelected, saveCustomValues)
+        if newValues != nil {
+            updateWhiteBalanceWidgets(newValues!.whiteBalance)
+            updateTintWidgets(newValues!.tint)
+        }
+
+        sender.isSelected = !currentlySelected
+        wbPresetButtons.last!.isSelected = false
     }
     
     //==================================================

@@ -707,23 +707,35 @@ public class CameraControlInterface:
     public func OnAutoFocusPressed() {
         m_packetWriter.writeAutoFocusPressed()
     }
+    
+    public func onFocusPeakPressed() {
+        m_packetWriter.writeFocusPeakPressed()
+    }
 
-    public func onFocusIncremented() {
+    public func onFocusAssistColorPressed(_ color: Int32) {
+        m_packetWriter.writeFocusAssistColorPressed(color)
+    }
+    
+    public func onFocusIncremented() -> Double {
         var newFocus = m_cameraState.focus + 0.1
         if newFocus > LensConfig.kMaxFocus {
             newFocus = LensConfig.kMaxFocus
         }
         
         onFocusChanged(newFocus)
+        
+        return newFocus
     }
     
-    public func onFocusDecremented() {
+    public func onFocusDecremented() -> Double {
         var newFocus = m_cameraState.focus - 0.1
         if newFocus < LensConfig.kMinFocus {
             newFocus = LensConfig.kMinFocus
         }
         
         onFocusChanged(newFocus)
+        
+        return newFocus
     }
     
     public func onFocusChanged(_ newFocus: Double) {

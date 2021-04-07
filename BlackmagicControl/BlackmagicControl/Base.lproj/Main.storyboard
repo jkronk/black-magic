@@ -867,6 +867,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onWhiteBalancePresetButtonClicked:" target="8Zi-EG-gEZ" id="OBd-Ga-56A"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="PfV-VY-fKu">
                                             <rect key="frame" x="72" y="36" width="81" height="32"/>
@@ -875,6 +878,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onWhiteBalancePresetButtonClicked:" target="8Zi-EG-gEZ" id="NFC-qs-BnR"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="fr1-cH-ofR">
                                             <rect key="frame" x="144" y="36" width="81" height="32"/>
@@ -883,6 +889,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onWhiteBalancePresetButtonClicked:" target="8Zi-EG-gEZ" id="YX1-4o-4Ut"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="8am-RZ-gbR">
                                             <rect key="frame" x="36" y="13" width="81" height="32"/>
@@ -891,6 +900,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onWhiteBalancePresetButtonClicked:" target="8Zi-EG-gEZ" id="8Pk-JT-vP5"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="VZ6-Wk-T8V">
                                             <rect key="frame" x="108" y="13" width="81" height="32"/>
@@ -899,6 +911,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onWhiteBalancePresetButtonClicked:" target="8Zi-EG-gEZ" id="a7Z-wo-GFk"/>
+                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pt2-TI-aQb">
                                             <rect key="frame" x="90" y="71" width="49" height="16"/>
@@ -1141,6 +1156,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onFocusPeakClicked:" target="8Zi-EG-gEZ" id="8fP-j5-eOA"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsp-k1-nXb">
                                             <rect key="frame" x="-2" y="73" width="70" height="32"/>
@@ -1149,6 +1167,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onFocusRedClicked:" target="8Zi-EG-gEZ" id="4If-mo-U9C"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7r-MS-Qt2">
                                             <rect key="frame" x="127" y="73" width="70" height="32"/>
@@ -1157,6 +1178,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onFocusWhiteClicked:" target="8Zi-EG-gEZ" id="T4f-qU-EpM"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zer-j3-b3K">
                                             <rect key="frame" x="62" y="73" width="70" height="32"/>
@@ -1165,6 +1189,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onFocusGreenClicked:" target="8Zi-EG-gEZ" id="HJ5-S5-1cd"/>
+                                            </connections>
                                         </button>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QmG-XS-4qc" customClass="BlackmagicSlider" customModule="BlackmagicControl" customModuleProvider="target">
                                             <rect key="frame" x="18" y="8" width="158" height="28"/>

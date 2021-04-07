@@ -61,7 +61,17 @@ class PacketWriter {
         let command = CCUEncodingFunctions.CreateLensSetAutoFocusCommand()
         validateAndSendCCUCommand(command)
     }
-
+    
+    func writeFocusPeakPressed() {
+        let command = CCUEncodingFunctions.CreateFocusAssistCommand(CCUPacketTypes.DisplayFocusAssistMode.Peak.rawValue, 0)
+        validateAndSendCCUCommand(command)
+    }
+    
+    func writeFocusAssistColorPressed(_ color: Int32) {
+        let command = CCUEncodingFunctions.CreateFocusAssistCommand(CCUPacketTypes.DisplayFocusAssistMode.ColouredLines.rawValue, color)
+        validateAndSendCCUCommand(command)
+    }
+    
     func writeRecordingFormat(_ recordingFormatData: CCUPacketTypes.RecordingFormatData) {
         let command = CCUEncodingFunctions.CreateRecordingFormatCommand(recordingFormatData: recordingFormatData)
         validateAndSendCCUCommand(command)
