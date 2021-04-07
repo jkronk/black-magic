@@ -13,6 +13,7 @@ public class CameraControlInterface:
     OutgoingPowerFromUIDelegate,
     LocationServicesDelegate {
     
+    
     let m_connectionManager: ConnectionManager
     var m_peripheralInterface: PeripheralInterface?
     let m_packetReader: PacketReader
