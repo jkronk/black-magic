@@ -63,6 +63,8 @@ struct CCUDecodingFunctions {
             try DecodeMetadataCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         case .ColorCorrection:
             try DecodeColorCorrectionCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
+        case .Display:
+            try DecodeDisplayCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         case .Audio:
             try DecodeAudioCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         default:
@@ -174,6 +176,29 @@ struct CCUDecodingFunctions {
         let lumaGamma: Int16 = data[3]
         
         packetDecodedDelegate.onGammaReceived(redGamma, greenGamma, blueGamma, lumaGamma)
+    }
+    
+    static func DecodeDisplayCategory(parameter: UInt8, payloadData: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
+        let parameterType = CCUPacketTypes.DisplayParameter(rawValue: parameter)
+        if parameterType != nil {
+            switch parameterType!
+            {
+            case .PeakingLevel:
+                try DecodePeakingLevel(data: payloadData, respondTo: packetDecodedDelegate)
+            default:
+                break
+            }
+        } else {
+            Logger.LogWithInfo("Invalid value for DisplayParameter: \(parameter).")
+            throw CCUGeneralError.InvalidParameter
+        }
+    }
+    
+    public static func DecodePeakingLevel(data: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {
+        let data: [Int16] = try ConvertPayloadDataWithExpectedCount(from: data, expectedCount: 1)
+        let peakingNumber: Int16 = data[0]
+        
+        packetDecodedDelegate.onFocusPeakReceived(peakingNumber)
     }
     
     static func DecodeAudioCategory(parameter: UInt8, payloadData: Data, respondTo packetDecodedDelegate: PacketDecodedDelegate) throws {

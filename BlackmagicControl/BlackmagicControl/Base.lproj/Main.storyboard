@@ -1203,14 +1203,6 @@
                                     <rect key="frame" x="3" y="3" width="194" height="146"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvh-yP-c37">
-                                            <rect key="frame" x="7" y="122" width="98" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Toggle OSD" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Mok-ws-5Ic">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                         <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Nf-J0-4hx">
                                             <rect key="frame" x="7" y="25" width="99" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1239,6 +1231,19 @@
                                                 </objectValues>
                                             </comboBoxCell>
                                         </comboBox>
+                                        <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="Nxa-QO-nAV">
+                                            <rect key="frame" x="5" y="113" width="42" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        </switch>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="00H-F3-mo7">
+                                            <rect key="frame" x="51" y="118" width="116" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="On Screen Display" id="xnA-Zb-Hv8">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </box>
@@ -1477,6 +1482,8 @@
                     </view>
                     <connections>
                         <outlet property="focusLabel" destination="dYZ-1x-hvZ" id="bc6-ge-l0t"/>
+                        <outlet property="focusPeakLabel" destination="iZW-64-eM9" id="hR1-iF-IFu"/>
+                        <outlet property="focusPeakSlider" destination="QmG-XS-4qc" id="bqU-Yx-Hxd"/>
                         <outlet property="gainLeftLabel" destination="nqO-A6-nqq" id="qL7-kh-iZU"/>
                         <outlet property="gainLeftSlider" destination="WLc-Cp-XKL" id="GxU-Vh-DQ4"/>
                         <outlet property="gainRightLabel" destination="jgY-Pa-MOU" id="OlV-DX-kJI"/>

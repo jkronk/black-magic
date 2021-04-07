@@ -38,6 +38,9 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     @IBOutlet weak var focusLabel: NSTextField!
     
+    @IBOutlet weak var focusPeakLabel: NSTextField!
+    @IBOutlet weak var focusPeakSlider: BlackmagicSlider!
+    
     @IBOutlet weak var gainLeftLabel: NSTextField!
     @IBOutlet weak var gainLeftSlider: BlackmagicSlider!
     @IBOutlet weak var gainRightLabel: NSTextField!
@@ -94,6 +97,8 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         irisSlider.maxValue = Double(LensConfig.fStopValues.count - 1)
         shutterSlider.minValue = 5.0
         shutterSlider.maxValue = 360.0
+        focusPeakSlider.minValue = 0.0
+        focusPeakSlider.maxValue = 1.0
         gainLeftSlider.minValue = 0.0
         gainLeftSlider.maxValue = 1.0
         gainRightSlider.minValue = 0.0
@@ -112,6 +117,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         tintSlider.setCallbacks(onTentativeValueChanged: onTintSliderChanged, onValueChanged: onTintSliderSet)
         irisSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onIrisSliderSet)
         shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
+        focusPeakSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onFocusPeakSliderSet)
         gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
         gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
         gammaSliderRed.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
@@ -163,6 +169,10 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         updateGainWidget(Float(gainL), Float(gainR))
     }
     
+    func onFocusPeakReceived(_ peak: Int16) {
+        updateFocusPeakWidgets(Float(peak))
+    }
+    
     //==================================================
     //    BlackmagicSlider callbacks
     //==================================================
@@ -204,6 +214,12 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         updateShutterWidgets(newShutterValue)
         m_outgoingCameraControlDelegate?.onShutterChanged(Double(newShutterValue))
         shutterPresetButtons.forEach { $0.isSelected = false }
+    }
+    
+    func onFocusPeakSliderSet(_: BlackmagicSlider) {
+        let newFocusPeakValue = focusPeakSlider.floatValue.rounded()
+        updateFocusPeakWidgets(newFocusPeakValue)
+        m_outgoingCameraControlDelegate?.onFocusPeakChanged(Double(newFocusPeakValue))
     }
     
     //this is the preferred way when working with multi value commands
@@ -281,6 +297,11 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         else {
             shutterLabel.stringValue = "1/\(Int(newShutterValue))"
         }
+    }
+    
+    func updateFocusPeakWidgets(_ newFocusPeakValue: Float) {
+        focusPeakSlider.floatValue = newFocusPeakValue
+        focusPeakLabel.stringValue = "\(newFocusPeakValue)"
     }
     
     func updateISOWidgets(_ index: Int) {

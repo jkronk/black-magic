@@ -692,6 +692,10 @@ public class CameraControlInterface:
         m_cameraControlToUIDelegate?.onAudioGainReceived(gainL, gainR)
     }
     
+    public func onFocusPeakReceived(_ peak: Int16) {
+        m_cameraControlToUIDelegate?.onFocusPeakReceived(peak)
+    }
+    
     // Shutter
     public func onShutterIncremented() -> Double {
         let nextShutterValue = getNextPresetShutterValue()
@@ -800,6 +804,11 @@ public class CameraControlInterface:
     public func onISOChanged(_ isoIndex: Int) {
         let iso = VideoConfig.kISOValues[isoIndex]
         m_packetWriter.writeISO(iso)
+    }
+    
+    public func onFocusPeakChanged(_ peak: Double) {
+        let peakValue = CCUPacketTypes.CCUFixedFromFloat(peak)
+        m_packetWriter.writeFocusPeak(peakValue)
     }
 
     // OutgoingSlateToCameraDelegate methods

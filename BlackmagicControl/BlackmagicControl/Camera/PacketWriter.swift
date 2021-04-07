@@ -77,6 +77,11 @@ class PacketWriter {
         validateAndSendCCUCommand(command)
     }
     
+    func writeFocusPeak(_ peak: Int16) {
+        let command = CCUEncodingFunctions.CreateFixed16Command(peak, CCUPacketTypes.Category.Display, CCUPacketTypes.DisplayParameter.PeakingLevel.rawValue)
+        validateAndSendCCUCommand(command)
+    }
+    
     func writeGamma(_ red: Int16, _ green: Int16, _ blue: Int16, _ luma: Int16) {
         let command = CCUEncodingFunctions.CreateGammaCommand(red, green, blue, luma)
         validateAndSendCCUCommand(command)
