@@ -303,6 +303,18 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         wbPresetButtons.last!.isSelected = false
     }
     
+    @IBAction func onShutterPresetButtonClicked(_ sender: NSButton) {
+        let currentlySelected = !sender.isSelected
+        shutterPresetButtons.forEach { $0.isSelected = false }
+        
+        let shutterValue = Float(sender.tag)
+        m_outgoingCameraControlDelegate?.onShutterChanged(Double(shutterValue))
+        updateShutterWidgets(shutterValue)
+        
+        sender.isSelected = !currentlySelected
+        shutterPresetButtons.last!.isSelected = false
+    }
+    
     //==================================================
     //    UI control
     //==================================================
