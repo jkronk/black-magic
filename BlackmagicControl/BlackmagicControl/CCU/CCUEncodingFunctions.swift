@@ -79,6 +79,10 @@ public struct CCUEncodingFunctions {
             CCUPacketTypes.LensParameter.AutoFocus.rawValue)
     }
     
+    public static func CreateOsdToggleCommand(_ displayVisible: Int8) -> (CCUPacketTypes.Command?) {
+        return CreateCommand(displayVisible, CCUPacketTypes.Category.Output, CCUPacketTypes.OutputParameter.OverlayEnables.rawValue)
+    }
+    
     public static func CreateVideoExposureCommand(value: Int32) -> (CCUPacketTypes.Command?) {
         return CreateCommand(value, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.Exposure.rawValue)
     }

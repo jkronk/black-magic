@@ -705,6 +705,10 @@ public class CameraControlInterface:
         return nextShutterValue
     }
     
+    public func onScreenDisplayChanged(_ displayVisisble: Int) {
+        m_packetWriter.writeOnScreenDisplayValue(Int8(displayVisisble))
+    }
+    
     public func OnAutoFocusPressed() {
         m_packetWriter.writeAutoFocusPressed()
     }

@@ -315,6 +315,12 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         shutterPresetButtons.last!.isSelected = false
     }
     
+    @IBAction func onScreenDisplayToggle(_ sender: NSSwitch){
+        let displayVisible = sender.state.rawValue
+        
+        m_outgoingCameraControlDelegate?.onScreenDisplayChanged(displayVisible)
+    }
+    
     //==================================================
     //    UI control
     //==================================================

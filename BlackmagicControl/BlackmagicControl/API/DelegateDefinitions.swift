@@ -191,7 +191,7 @@ public protocol OutgoingCameraControlFromUIDelegate: class {
     func onFocusAssistColorPressed(_ color: Int32)
     func onFocusPeakChanged(_ peak: Double)
     
-    
+    func onScreenDisplayChanged(_ displayVisible: Int)
     func onAudioGainChanged(_ gainL: Double, _ gainR: Double)
     func onGammaChanged(_ red: Double, _ green: Double, _ blue: Double, _ luma: Double)
 }

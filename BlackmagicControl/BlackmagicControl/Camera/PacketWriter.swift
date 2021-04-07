@@ -62,6 +62,11 @@ class PacketWriter {
         validateAndSendCCUCommand(command)
     }
     
+    func writeOnScreenDisplayValue(_ displayVisible: Int8){
+        let command = CCUEncodingFunctions.CreateOsdToggleCommand(displayVisible)
+        validateAndSendCCUCommand(command)
+    }
+    
     func writeFocusPeakPressed() {
         let command = CCUEncodingFunctions.CreateFocusAssistCommand(CCUPacketTypes.DisplayFocusAssistMode.Peak.rawValue, 0)
         validateAndSendCCUCommand(command)
