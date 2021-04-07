@@ -46,6 +46,9 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var gainRightLabel: NSTextField!
     @IBOutlet weak var gainRightSlider: BlackmagicSlider!
     
+    @IBOutlet weak var cmbCodec: NSComboBox!
+    @IBOutlet weak var cmbCodecVariant: NSComboBox!
+    
     @IBOutlet weak var gammaLabelRed: NSTextField!
     @IBOutlet weak var gammaLabelGreen: NSTextField!
     @IBOutlet weak var gammaLabelBlue: NSTextField!
@@ -87,6 +90,8 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         isoRadioButtons.append(iso400RadioButton)
         isoRadioButtons.append(iso800RadioButton)
         isoRadioButtons.append(iso1600RadioButton)
+        
+        cmbCodec.addItems(withObjectValues: ["RAW", "DNxHD", "ProRes", "BRAW"])
         
         // Set values on sliders.
         whiteBalanceSlider.minValue = Double(VideoConfig.kWhiteBalanceMin)
@@ -319,6 +324,31 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         let displayVisible = sender.state.rawValue
         
         m_outgoingCameraControlDelegate?.onScreenDisplayChanged(displayVisible)
+    }
+    
+    @IBAction func comboCodecSelectionChanged(_ sender: NSComboBox) {
+        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return
+        }
+        cmbCodecVariant.removeAllItems()
+        if sender.indexOfSelectedItem == 0 {
+            cmbCodecVariant.addItems(withObjectValues: ["Uncompressed", "3:1", "4:1"])
+        }
+        else if sender.indexOfSelectedItem == 2 {
+            cmbCodecVariant.addItems(withObjectValues: ["HQ", "422", "LT", "Proxy", "444", "444XQ"])
+        }
+        else if sender.indexOfSelectedItem == 3 {
+            cmbCodecVariant.addItems(withObjectValues: ["Q0", "Q1", "3:1", "5:1", "8:1", "12:1"])
+        }
+        
+        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
+    }
+    
+    @IBAction func cmbCodecVariantSelectionChanged(_ sender: NSComboBox) {
+        
+        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return
+        }
+        
+        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
     }
     
     //==================================================

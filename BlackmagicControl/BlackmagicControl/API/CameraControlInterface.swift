@@ -709,6 +709,10 @@ public class CameraControlInterface:
         m_packetWriter.writeOnScreenDisplayValue(Int8(displayVisisble))
     }
     
+    public func onCodecChanged(_ codec: Int, _ codecVariant: Int) {
+        m_packetWriter.writeCodec(codec, codecVariant)
+    }
+    
     public func OnAutoFocusPressed() {
         m_packetWriter.writeAutoFocusPressed()
     }

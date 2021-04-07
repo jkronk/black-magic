@@ -1243,6 +1243,9 @@
                                                     <string>Item 3</string>
                                                 </objectValues>
                                             </comboBoxCell>
+                                            <connections>
+                                                <action selector="cmbCodecVariantSelectionChanged:" target="8Zi-EG-gEZ" id="4F8-Wu-Ebg"/>
+                                            </connections>
                                         </comboBox>
                                         <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xeY-Bu-pag">
                                             <rect key="frame" x="7" y="73" width="99" height="25"/>
@@ -1257,10 +1260,16 @@
                                                     <string>Item 3</string>
                                                 </objectValues>
                                             </comboBoxCell>
+                                            <connections>
+                                                <action selector="comboCodecSelectionChanged:" target="8Zi-EG-gEZ" id="Q73-hO-mip"/>
+                                            </connections>
                                         </comboBox>
                                         <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="Nxa-QO-nAV">
                                             <rect key="frame" x="5" y="113" width="42" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <connections>
+                                                <action selector="onScreenDisplayToggle:" target="8Zi-EG-gEZ" id="RYg-pV-b8w"/>
+                                            </connections>
                                         </switch>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="00H-F3-mo7">
                                             <rect key="frame" x="51" y="118" width="116" height="16"/>
@@ -1526,6 +1535,8 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="cmbCodec" destination="xeY-Bu-pag" id="dTG-Ye-vdV"/>
+                        <outlet property="cmbCodecVariant" destination="3Nf-J0-4hx" id="epN-2k-azA"/>
                         <outlet property="focusLabel" destination="dYZ-1x-hvZ" id="bc6-ge-l0t"/>
                         <outlet property="focusPeakLabel" destination="iZW-64-eM9" id="hR1-iF-IFu"/>
                         <outlet property="focusPeakSlider" destination="QmG-XS-4qc" id="bqU-Yx-Hxd"/>

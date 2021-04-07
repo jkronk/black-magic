@@ -193,6 +193,8 @@ public protocol OutgoingCameraControlFromUIDelegate: class {
     
     func onScreenDisplayChanged(_ displayVisible: Int)
     func onAudioGainChanged(_ gainL: Double, _ gainR: Double)
+    func onCodecChanged(_ codec: Int, _ codecVariant: Int)
+    
     func onGammaChanged(_ red: Double, _ green: Double, _ blue: Double, _ luma: Double)
 }
 

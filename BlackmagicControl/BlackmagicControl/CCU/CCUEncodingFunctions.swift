@@ -86,6 +86,22 @@ public struct CCUEncodingFunctions {
     public static func CreateVideoExposureCommand(value: Int32) -> (CCUPacketTypes.Command?) {
         return CreateCommand(value, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.Exposure.rawValue)
     }
+    
+    public static func CreateCodecCommand(_ codec: Int, _ codecVariant: Int) -> (CCUPacketTypes.Command?) {
+        let dataArray: [Int] = [codec, codecVariant]
+        let payloadData: [UInt8] = UtilityFunctions.ToByteArrayFromArray(dataArray)
+        
+        let command = CCUPacketTypes.InitCommand(
+            target: CCUPacketTypes.kBroadcastTarget,
+            commandId: CCUPacketTypes.CommandID.ChangeConfiguration,
+            category: CCUPacketTypes.Category.Media,
+            parameter: CCUPacketTypes.MediaParameter.Codec.rawValue,
+            operationType: CCUPacketTypes.OperationType.AssignValue,
+            dataType: CCUPacketTypes.DataTypes.kInt8,
+            data: payloadData)
+        
+        return command
+    }
 
     public static func CreateRecordingFormatCommand(recordingFormatData: CCUPacketTypes.RecordingFormatData) -> (CCUPacketTypes.Command?) {
         var flags: Int16 = 0

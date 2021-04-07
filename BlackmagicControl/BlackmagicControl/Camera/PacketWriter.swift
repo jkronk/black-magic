@@ -62,8 +62,13 @@ class PacketWriter {
         validateAndSendCCUCommand(command)
     }
     
-    func writeOnScreenDisplayValue(_ displayVisible: Int8){
+    func writeOnScreenDisplayValue(_ displayVisible: Int8) {
         let command = CCUEncodingFunctions.CreateOsdToggleCommand(displayVisible)
+        validateAndSendCCUCommand(command)
+    }
+    
+    func writeCodec(_ codec: Int, _ codecVariant: Int) {
+        let command = CCUEncodingFunctions.CreateCodecCommand(codec, codecVariant)
         validateAndSendCCUCommand(command)
     }
     

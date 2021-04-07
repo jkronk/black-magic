@@ -392,6 +392,7 @@ public struct CCUPacketTypes {
         case RAW = 0
         case DNxHD = 1
         case ProRes = 2
+        case BRAW = 3
     }
 
     // Media: Codec: Codec Variant
@@ -408,6 +409,13 @@ public struct CCUPacketTypes {
         public static let kLosslessRaw: CodecVariant = 0
         public static let kRaw3_1: CodecVariant = 1
         public static let kRaw4_1: CodecVariant = 2
+        
+        public static let kBrawQ0: CodecVariant = 0
+        public static let kBrawQ5: CodecVariant = 1
+        public static let kBraw3_1: CodecVariant = 2
+        public static let kBraw5_1: CodecVariant = 3
+        public static let kBraw8_1: CodecVariant = 4
+        public static let kBraw12_1: CodecVariant = 5
     }
 
     // Media: Transport Mode: Mode
