@@ -118,17 +118,23 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         gammaSliderLuma.maxValue = ColorCorrectionConfig.kMaxGamma
         
         // Assign callbacks to our sliders
-//        whiteBalanceSlider.setCallbacks(onTentativeValueChanged: onWhiteBalanceSliderChanged, onValueChanged: onWhiteBalanceSliderSet)
-//        tintSlider.setCallbacks(onTentativeValueChanged: onTintSliderChanged, onValueChanged: onTintSliderSet)
-//        irisSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onIrisSliderSet)
-//        shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
-//        focusPeakSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onFocusPeakSliderSet)
-//        gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
-//        gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
-//        gammaSliderRed.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
-//        gammaSliderGreen.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
-//        gammaSliderBlue.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
-//        gammaSliderLuma.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        whiteBalanceSlider.setCallbacks(onTentativeValueChanged: onWhiteBalanceSliderChanged, onValueChanged: onWhiteBalanceSliderSet)
+        tintSlider.setCallbacks(onTentativeValueChanged: onTintSliderChanged, onValueChanged: onTintSliderSet)
+        irisSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onIrisSliderSet)
+        shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
+        focusPeakSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onFocusPeakSliderSet)
+        gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
+        gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
+        gammaSliderRed.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        gammaSliderGreen.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        gammaSliderBlue.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        gammaSliderLuma.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
+        
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        let cameraControlInterface: CameraControlInterface = appDelegate.cameraControlInterface
+        m_outgoingCameraControlDelegate = cameraControlInterface
+        cameraControlInterface.m_cameraControlToUIDelegate = self
+        cameraControlInterface.onControlViewLoaded()
     }
     
     //==================================================
