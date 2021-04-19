@@ -397,8 +397,6 @@ public class CameraControlInterface:
         }
     }
 
-    
-    
     public func onExposureReceived(_ exposure: Int32) {
     }
 	
@@ -601,10 +599,6 @@ public class CameraControlInterface:
         return nil
     }
 
-    public func onAutoWhiteBalancePressed() {
-        m_packetWriter.writeAutoWhiteBalance()
-    }
-
     // Off-Speed Frame Rate
     public func onOffSpeedFrameRateToggled(_ offSpeedEnabled: Bool) {
         m_cameraState.recordingFormatData.offSpeedEnabled = offSpeedEnabled
@@ -639,7 +633,7 @@ public class CameraControlInterface:
             m_packetWriter.writeRecordingFormat(recordingFormatData)
         }
     }
-
+    
     // Iris
     public func onIrisIncremented() -> Int {
         let newIndex = m_cameraState.fStopIndex + 1
@@ -669,6 +663,11 @@ public class CameraControlInterface:
                 m_packetWriter.writeIris(apertureValue)
             }
         }
+    }
+    
+    //Void command
+    public func onAutoWhiteBalancePressed() {
+        m_packetWriter.writeAutoWhiteBalance()
     }
     
     public func onAudioGainChanged(_ gainL: Double,_ gainR: Double) {

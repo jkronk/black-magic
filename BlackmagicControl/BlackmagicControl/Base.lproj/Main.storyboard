@@ -709,7 +709,7 @@
         <scene sceneID="jkn-oF-cYl">
             <objects>
                 <viewController id="BIS-BN-qUe" customClass="BaseViewController" customModule="BlackmagicControl" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="eLP-4w-tPb">
+                    <view key="view" autoresizesSubviews="NO" wantsLayer="YES" id="eLP-4w-tPb">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -728,7 +728,7 @@
         <scene sceneID="Nf7-GD-CBc">
             <objects>
                 <viewController title="Select View Controller" storyboardIdentifier="selectController" id="4md-oq-g0X" customClass="SelectViewController" customModule="BlackmagicControl" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Tt4-16-Ogz">
+                    <view key="view" autoresizesSubviews="NO" id="Tt4-16-Ogz">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -796,6 +796,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onConnectButtonClicked:" target="4md-oq-g0X" id="FkS-fP-q2m"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-mI-nY5">
                                 <rect key="frame" x="-234" y="38" width="953" height="17"/>
@@ -844,7 +847,7 @@
         <scene sceneID="cRw-GW-tC6">
             <objects>
                 <viewController storyboardIdentifier="mainController" id="8Zi-EG-gEZ" customClass="MainViewController" customModule="BlackmagicControl" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="FsW-Ea-dAo">
+                    <view key="view" autoresizesSubviews="NO" id="FsW-Ea-dAo">
                         <rect key="frame" x="0.0" y="0.0" width="665" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>

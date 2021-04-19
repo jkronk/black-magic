@@ -65,8 +65,8 @@ struct CCUDecodingFunctions {
             try DecodeColorCorrectionCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         case .Display:
             try DecodeDisplayCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
-        case .Audio:
-            try DecodeAudioCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
+        //case .Audio:
+            //try DecodeAudioCategory(parameter: parameter, payloadData: payloadData, respondTo: packetDecodedDelegate)
         default:
             break
         }
@@ -118,10 +118,10 @@ struct CCUDecodingFunctions {
         if parameterType != nil {
             switch parameterType!
             {
-            case .ApertureFstop:
-                try DecodeApertureFStop(data: payloadData, respondTo: packetDecodedDelegate)
-            case .Focus:
-                try DecodeFocus(data: payloadData, respondTo: packetDecodedDelegate)
+            //case .ApertureFstop:
+                //try DecodeApertureFStop(data: payloadData, respondTo: packetDecodedDelegate)
+            //case .Focus:
+                //try DecodeFocus(data: payloadData, respondTo: packetDecodedDelegate)
             default:
                 break
             }
@@ -156,8 +156,8 @@ struct CCUDecodingFunctions {
         if parameterType != nil {
             switch parameterType!
             {
-            case .GammaAdjust:
-                try DecodeGammaAdjust(data: payloadData, respondTo: packetDecodedDelegate)
+            //case .GammaAdjust:
+                //try DecodeGammaAdjust(data: payloadData, respondTo: packetDecodedDelegate)
             default:
                 break
             }
@@ -183,8 +183,8 @@ struct CCUDecodingFunctions {
         if parameterType != nil {
             switch parameterType!
             {
-            case .PeakingLevel:
-                try DecodePeakingLevel(data: payloadData, respondTo: packetDecodedDelegate)
+            //case .PeakingLevel:
+                //try DecodePeakingLevel(data: payloadData, respondTo: packetDecodedDelegate)
             default:
                 break
             }
@@ -206,8 +206,8 @@ struct CCUDecodingFunctions {
         if parameterType != nil {
             switch parameterType!
             {
-            case .InputLevels:
-                try DecodeAudioGain(data: payloadData, respondTo: packetDecodedDelegate)
+            //case .InputLevels:
+                //try DecodeAudioGain(data: payloadData, respondTo: packetDecodedDelegate)
             default:
                 break
             }
