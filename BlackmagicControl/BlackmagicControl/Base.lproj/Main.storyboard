@@ -728,11 +728,11 @@
             <objects>
                 <viewController title="Select View Controller" storyboardIdentifier="selectController" id="4md-oq-g0X" customClass="SelectViewController" customModule="BlackmagicControl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Tt4-16-Ogz">
-                        <rect key="frame" x="0.0" y="0.0" width="528" height="315"/>
+                        <rect key="frame" x="0.0" y="0.0" width="665" height="515"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AiQ-dv-brw">
-                                <rect key="frame" x="165" y="283" width="198" height="27"/>
+                                <rect key="frame" x="234" y="483" width="198" height="27"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Blackmagic Design" id="bkY-Md-2Y6">
                                     <font key="font" metaFont="system" size="23"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -740,7 +740,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bhZ-4N-a9w">
-                                <rect key="frame" x="181" y="264" width="166" height="16"/>
+                                <rect key="frame" x="250" y="464" width="166" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Bluetooth Camera Control" id="UxE-gW-Zwn">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -748,14 +748,14 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKW-43-O9F">
-                                <rect key="frame" x="144" y="62" width="240" height="192"/>
+                                <rect key="frame" x="148" y="85" width="370" height="344"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="TM1-TD-4dW">
-                                    <rect key="frame" x="1" y="1" width="238" height="190"/>
+                                    <rect key="frame" x="1" y="1" width="368" height="342"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" id="0kj-LX-KzH">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="368" height="342"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -782,21 +782,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="zEd-Om-SZL">
-                                    <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
+                                    <rect key="frame" x="354" y="1" width="15" height="12"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-mI-nY5">
-                                <rect key="frame" x="142" y="37" width="244" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="cdH-Ou-KxI">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="czc-5w-iy0">
-                                <rect key="frame" x="221" y="-1" width="86" height="32"/>
+                                <rect key="frame" x="290" y="-1" width="86" height="32"/>
                                 <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xfd-I9-sYl">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -805,6 +796,15 @@
                                     <action selector="onConnectButtonClicked:" target="4md-oq-g0X" id="FkS-fP-q2m"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-mI-nY5">
+                                <rect key="frame" x="211" y="49" width="244" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="cdH-Ou-KxI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="czc-5w-iy0" firstAttribute="centerX" secondItem="Tt4-16-Ogz" secondAttribute="centerX" id="EY8-NE-Knd"/>
@@ -823,18 +823,18 @@
                 </viewController>
                 <customObject id="Q7d-5b-UrD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="-204.5"/>
+            <point key="canvasLocation" x="298.5" y="-205"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="6U9-sP-X2q">
             <objects>
                 <viewController storyboardIdentifier="contentController" id="lWK-Ht-BKb" customClass="ContentViewController" customModule="BlackmagicControl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="sZk-Hk-0Yh">
-                        <rect key="frame" x="0.0" y="0.0" width="665" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="665" height="515"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVq-ay-w0a">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="665" height="530"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="8Zi-EG-gEZ" kind="embed" id="agf-k5-scJ"/>
@@ -845,7 +845,7 @@
                 </viewController>
                 <customObject id="pkw-Yz-BJw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="397"/>
+            <point key="canvasLocation" x="299" y="437"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="cRw-GW-tC6">
@@ -1587,7 +1587,7 @@
                 </viewController>
                 <customObject id="woZ-87-pYt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="1121"/>
+            <point key="canvasLocation" x="298.5" y="1069.5"/>
         </scene>
     </scenes>
 </document>

@@ -24,7 +24,7 @@ class BaseViewController: NSViewController, ConnectionStatusToUIDelegate {
         m_contentController = mainStoryboard.instantiateController(withIdentifier: "contentController") as? ContentViewController
 
         showSelectView()
-
+        //showContentView()
         super.viewDidLoad()
     }
 
