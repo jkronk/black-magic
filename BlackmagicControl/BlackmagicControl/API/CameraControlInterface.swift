@@ -708,7 +708,7 @@ public class CameraControlInterface:
     }
     
     public func onScreenDisplayChanged(_ displayVisisble: Int) {
-        m_packetWriter.writeOnScreenDisplayValue(Int8(displayVisisble))
+        m_packetWriter.writeOnScreenDisplayValue(displayVisisble)
     }
     
     public func onCodecChanged(_ codec: Int, _ codecVariant: Int) {
@@ -1040,7 +1040,32 @@ public class CameraControlInterface:
         transportInfo.transportMode = isCurrentlyInPreview ? CCUPacketTypes.MediaTransportMode.Record : CCUPacketTypes.MediaTransportMode.Preview
         m_packetWriter.writeTransportPacket(transportInfo)
     }
-
+    
+    public func onPlayPressed() {
+        var transportInfo = m_cameraState.transportInfo
+        let isCurrentlyInPreview = transportInfo.transportMode == CCUPacketTypes.MediaTransportMode.Preview
+        transportInfo.transportMode = isCurrentlyInPreview ? CCUPacketTypes.MediaTransportMode.Play : CCUPacketTypes.MediaTransportMode.Preview
+        m_packetWriter.writeTransportPacket(transportInfo)
+    }
+    
+    public func onNextClipPressed() {
+        var transportInfo = m_cameraState.transportInfo
+        transportInfo.speed = 1
+        m_packetWriter.writeTransportPacket(transportInfo)
+    }
+    
+    public func onPrevClipPressed() {
+        var transportInfo = m_cameraState.transportInfo
+        transportInfo.speed = -1
+        m_packetWriter.writeTransportPacket(transportInfo)
+    }
+    
+    public func returnToPreviewMode() {
+        var transportInfo = m_cameraState.transportInfo
+        transportInfo.transportMode = CCUPacketTypes.MediaTransportMode.Preview
+        m_packetWriter.writeTransportPacket(transportInfo)
+    }
+    
     public func onDisk1Pressed() {
         let disk1Status: CCUPacketTypes.MediaStatus = m_cameraState.mediaStatuses[0]
         var transportInfo = m_cameraState.transportInfo

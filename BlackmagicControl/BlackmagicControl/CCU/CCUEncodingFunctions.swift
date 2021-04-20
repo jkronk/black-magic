@@ -79,8 +79,8 @@ public struct CCUEncodingFunctions {
             CCUPacketTypes.LensParameter.AutoFocus.rawValue)
     }
     
-    public static func CreateOsdToggleCommand(_ displayVisible: Int8) -> (CCUPacketTypes.Command?) {
-        return CreateCommand(displayVisible, CCUPacketTypes.Category.Output, CCUPacketTypes.OutputParameter.OverlayEnables.rawValue)
+    public static func CreateOsdToggleCommand(_ displayVisible: UInt16) -> (CCUPacketTypes.Command?) {
+        return CreateToggleOsdCommand(displayVisible)
     }
     
     public static func CreateVideoExposureCommand(value: Int32) -> (CCUPacketTypes.Command?) {
@@ -197,6 +197,21 @@ public struct CCUEncodingFunctions {
             parameter: CCUPacketTypes.MetadataParameter.Take.rawValue,
             operationType: CCUPacketTypes.OperationType.AssignValue,
             dataType: CCUPacketTypes.DataTypes.kInt8,
+            data: data)
+
+        return command
+    }
+    
+    public static func CreateToggleOsdCommand(_ toggle: UInt16) -> (CCUPacketTypes.Command?) {
+        
+        let data: [UInt8] = UtilityFunctions.ToByteArray(toggle)
+        let command = CCUPacketTypes.InitCommand(
+            target: CCUPacketTypes.kBroadcastTarget,
+            commandId: CCUPacketTypes.CommandID.ChangeConfiguration,
+            category: CCUPacketTypes.Category.Output,
+            parameter: CCUPacketTypes.OutputParameter.OverlayEnables.rawValue,
+            operationType: CCUPacketTypes.OperationType.AssignValue,
+            dataType: CCUPacketTypes.DataTypes.kInt16,
             data: data)
 
         return command

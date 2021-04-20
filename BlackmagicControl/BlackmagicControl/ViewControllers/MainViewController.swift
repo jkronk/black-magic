@@ -43,6 +43,12 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var gainRightLabel: NSTextField!
     @IBOutlet weak var gainRightSlider: BlackmagicSlider!
     
+    @IBOutlet weak var chkToggleMode: NSSwitch!
+    @IBOutlet weak var btnRecord: NSButton!
+    @IBOutlet weak var btnPlay: NSButton!
+    @IBOutlet weak var btnPrev: NSButton!
+    @IBOutlet weak var btnNext: NSButton!
+    
     @IBOutlet weak var cmbCodec: NSComboBox!
     @IBOutlet weak var cmbCodecVariant: NSComboBox!
     
@@ -61,6 +67,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     var m_shutterValueIsAngle: Bool = true
     weak var m_outgoingCameraControlDelegate: OutgoingCameraControlFromUIDelegate?
+    weak var m_outgoingRecordControlDelegate: OutgoingRecordControlFromUIDelegate?
     
     //==================================================
     //    UIViewController methods
@@ -129,9 +136,15 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         gammaSliderBlue.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
         gammaSliderLuma.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
         
+        btnRecord.isEnabled = true
+        btnPlay.isEnabled = false
+        btnPrev.isEnabled = false
+        btnNext.isEnabled = false
+        
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         let cameraControlInterface: CameraControlInterface = appDelegate.cameraControlInterface
         m_outgoingCameraControlDelegate = cameraControlInterface
+        m_outgoingRecordControlDelegate = cameraControlInterface
         cameraControlInterface.m_cameraControlToUIDelegate = self
         cameraControlInterface.onControlViewLoaded()
     }
@@ -352,6 +365,43 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         
         m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
     }
+    
+    @IBAction func chkToggleModeSwitched(_ sender: NSSwitch) {
+        
+        //start by returning the camera to preview mode
+        m_outgoingRecordControlDelegate?.returnToPreviewMode()
+        btnRecord.state = NSControl.StateValue.off
+        btnPlay.state = NSControl.StateValue.off
+        
+        if sender.state == NSControl.StateValue.on {
+            btnRecord.isEnabled = false
+            btnPlay.isEnabled = true
+            btnPrev.isEnabled = true
+            btnNext.isEnabled = true
+        } else {
+            btnRecord.isEnabled = true
+            btnPlay.isEnabled = false
+            btnPrev.isEnabled = false
+            btnNext.isEnabled = false
+        }
+    }
+    
+    @IBAction func btnRecordPressed(_ sender: NSButton) {
+        m_outgoingRecordControlDelegate?.onRecordPressed()
+    }
+    
+    @IBAction func btnPlayPressed(_ sender: NSButton) {
+        m_outgoingRecordControlDelegate?.onPlayPressed()
+    }
+    
+    @IBAction func onNextPressed(_ sender: NSButton) {
+        m_outgoingRecordControlDelegate?.onNextClipPressed()
+    }
+    
+    @IBAction func onPrevPressed(_ sender: NSButton) {
+        m_outgoingRecordControlDelegate?.onPrevClipPressed()
+    }
+    
     
     //==================================================
     //    UI control
