@@ -1044,63 +1044,6 @@
                                 <view key="contentView" id="umG-pa-T54">
                                     <rect key="frame" x="3" y="3" width="224" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZx-O9-mYy">
-                                            <rect key="frame" x="0.0" y="14.5" width="42" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="100" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="fu7-Un-XjD">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="yKE-pr-b3H"/>
-                                            </connections>
-                                        </button>
-                                        <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="HEC-VF-xkJ">
-                                            <rect key="frame" x="88" y="14.5" width="41" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="400" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="LUS-N4-smt">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="03D-zr-HMW"/>
-                                            </connections>
-                                        </button>
-                                        <button fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="r5l-wU-f7B">
-                                            <rect key="frame" x="134" y="13.5" width="43" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="800" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="A73-Fy-2sf">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="x7Z-8I-deW"/>
-                                            </connections>
-                                        </button>
-                                        <button fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="SLi-d2-TyI">
-                                            <rect key="frame" x="177" y="14.5" width="48" height="15"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="1600" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="Nzg-IT-fsE">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="HIy-oQ-2RH"/>
-                                            </connections>
-                                        </button>
-                                        <button fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="aem-gF-1GR">
-                                            <rect key="frame" x="42" y="14.5" width="42" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="200" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="ZTa-jW-Hpx">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="onISORadioButtonClicked:" target="8Zi-EG-gEZ" id="qHT-YM-Ack"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
                                 </view>
                             </box>
                             <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="wIR-GF-o4Z">
@@ -1561,11 +1504,6 @@
                         <outlet property="gammaSliderRed" destination="j6x-BM-Zc7" id="4Vg-RA-P5j"/>
                         <outlet property="irisLabel" destination="dr0-xg-RAc" id="2sH-Ol-iYL"/>
                         <outlet property="irisSlider" destination="lge-N2-AFj" id="S91-sf-OIR"/>
-                        <outlet property="iso100RadioButton" destination="ZZx-O9-mYy" id="wCA-1h-Zgb"/>
-                        <outlet property="iso1600RadioButton" destination="SLi-d2-TyI" id="XCM-zf-9nK"/>
-                        <outlet property="iso200RadioButton" destination="aem-gF-1GR" id="wCY-I8-d9c"/>
-                        <outlet property="iso400RadioButton" destination="HEC-VF-xkJ" id="Lui-9c-MIL"/>
-                        <outlet property="iso800RadioButton" destination="r5l-wU-f7B" id="dvn-cM-x1Z"/>
                         <outlet property="shutterLabel" destination="T3N-Bo-s0k" id="zyU-O4-bW2"/>
                         <outlet property="shutterPreset1Button" destination="SCk-hO-bAm" id="kwf-rK-eDJ"/>
                         <outlet property="shutterPreset2Button" destination="UnZ-WG-2IX" id="cmR-N9-a3N"/>

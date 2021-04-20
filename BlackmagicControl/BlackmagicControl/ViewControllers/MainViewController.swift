@@ -30,12 +30,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var shutterPreset5Button: NSButton!
     @IBOutlet weak var shutterPreset6Button: NSButton!
     
-    @IBOutlet weak var iso100RadioButton: NSButton!
-    @IBOutlet weak var iso200RadioButton: NSButton!
-    @IBOutlet weak var iso400RadioButton: NSButton!
-    @IBOutlet weak var iso800RadioButton: NSButton!
-    @IBOutlet weak var iso1600RadioButton: NSButton!
-    
     @IBOutlet weak var focusLabel: NSTextField!
     
     @IBOutlet weak var focusPeakLabel: NSTextField!
@@ -61,7 +55,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     var wbPresetButtons = [NSButton]()
     var shutterPresetButtons = [NSButton]()
-    var isoRadioButtons = [NSButton]()
     
     var m_shutterValueIsAngle: Bool = true
     weak var m_outgoingCameraControlDelegate: OutgoingCameraControlFromUIDelegate?
@@ -84,12 +77,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         shutterPresetButtons.append(shutterPreset4Button)
         shutterPresetButtons.append(shutterPreset5Button)
         shutterPresetButtons.append(shutterPreset6Button)
-        
-        isoRadioButtons.append(iso100RadioButton)
-        isoRadioButtons.append(iso200RadioButton)
-        isoRadioButtons.append(iso400RadioButton)
-        isoRadioButtons.append(iso800RadioButton)
-        isoRadioButtons.append(iso1600RadioButton)
         
         cmbCodec.addItems(withObjectValues: ["RAW", "DNxHD", "ProRes", "BRAW"])
         
@@ -393,8 +380,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     }
     
     func updateISOWidgets(_ index: Int) {
-        isoRadioButtons.forEach { $0.isSelected = false }
-        isoRadioButtons[index].isSelected = true
+        
     }
     
     func updateGainWidget(_ leftValue: Float, _ rightValue: Float) {
