@@ -407,17 +407,21 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     func updateGammaWidget(_ redValue: Float, _ greenValue: Float,_ blueValue: Float,_ lumaValue: Float) {
         gammaSliderRed.floatValue = redValue
-        gammaLabelRed.stringValue = "\(redValue)"
+        gammaLabelRed.stringValue = "\(roundGamma(redValue))"
         gammaSliderGreen.floatValue = greenValue
-        gammaLabelGreen.stringValue = "\(greenValue)"
+        gammaLabelGreen.stringValue = "\(roundGamma(greenValue))"
         gammaSliderBlue.floatValue = blueValue
-        gammaLabelBlue.stringValue = "\(blueValue)"
+        gammaLabelBlue.stringValue = "\(roundGamma(blueValue))"
         gammaSliderLuma.floatValue = lumaValue
-        gammaLabelLuma.stringValue = "\(lumaValue)"
+        gammaLabelLuma.stringValue = "\(roundGamma(lumaValue))"
     }
     
     func updateFocusText(_ focus: Float) {
         focusLabel.stringValue = "\(focus)"
+    }
+    
+    func roundGamma(_ gamma: Float) -> Float {
+        return floor(gamma * 10) / 10.0
     }
 }
 
