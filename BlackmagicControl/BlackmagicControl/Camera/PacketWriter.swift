@@ -125,8 +125,7 @@ class PacketWriter {
 	}
 
     func writeISO(_ sensorGain: Int) {
-        let sensorGainValue = UInt16(sensorGain) / VideoConfig.kSentSensorGainBase
-        let command = CCUEncodingFunctions.CreateVideoSensorGainCommand(value: Int8(sensorGainValue))
+        let command = CCUEncodingFunctions.CreateVideoSensorGainCommand(value: Int32(sensorGain))
         validateAndSendCCUCommand(command)
     }
 

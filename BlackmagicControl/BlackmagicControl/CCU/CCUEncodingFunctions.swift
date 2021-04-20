@@ -2,8 +2,8 @@ import Foundation
 
 public struct CCUEncodingFunctions {
     // Video category encoding functions
-    public static func CreateVideoSensorGainCommand(value: Int8) -> (CCUPacketTypes.Command?) {
-        return CreateCommand(value, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.SensorGain.rawValue)
+    public static func CreateVideoSensorGainCommand(value: Int32) -> (CCUPacketTypes.Command?) {
+        return CreateCommand(value, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.ISO.rawValue)
     }
 
     public static func CreateFocusAssistCommand(_ focusAssistMethod: Int32, _ focusLineColour: Int32) -> (CCUPacketTypes.Command?) {
