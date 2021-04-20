@@ -310,8 +310,8 @@ public struct CCUPacketTypes {
 
     // Status: Video display settings
     public enum DisplayFocusAssistMode: Int32 {
-        case ColouredLines = 0
-        case Peak = 1
+        case Peak = 0
+        case ColouredLines = 1
     }
 
     public enum DisplayFocusAssistColour: Int32 {

@@ -78,7 +78,7 @@ class PacketWriter {
     }
     
     func writeFocusAssistColorPressed(_ color: Int32) {
-        let command = CCUEncodingFunctions.CreateFocusAssistCommand(CCUPacketTypes.DisplayFocusAssistMode.ColouredLines.rawValue, color)
+        let command = CCUEncodingFunctions.CreateFocusAssistCommand(CCUPacketTypes.DisplayFocusAssistMode.Peak.rawValue, color)
         validateAndSendCCUCommand(command)
     }
     
