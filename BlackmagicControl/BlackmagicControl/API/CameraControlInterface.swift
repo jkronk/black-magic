@@ -670,10 +670,13 @@ public class CameraControlInterface:
         m_packetWriter.writeAutoWhiteBalance()
     }
     
-    public func onAudioGainChanged(_ gainL: Double,_ gainR: Double) {
+    public func onAudioGainChanged(_ gainL: Double,_ gainR: Double) ->  (Int32, Int32)? {
         let leftValue = CCUPacketTypes.CCUFixedFromFloat(gainL)
         let rightValue = CCUPacketTypes.CCUFixedFromFloat(gainR)
+        
         m_packetWriter.writeAudioGain(leftValue, rightValue)
+        
+        return (left: CCUPacketTypes.CCUPercentFromFixed(leftValue), right: CCUPacketTypes.CCUPercentFromFixed(rightValue))
     }
     
     public func onGammaChanged(_ red: Double, _ green: Double, _ blue: Double, _ luma: Double) {

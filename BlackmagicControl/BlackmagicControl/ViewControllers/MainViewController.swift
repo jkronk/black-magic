@@ -98,16 +98,22 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         focusPeakSlider.maxValue = 1.0
         gainLeftSlider.minValue = 0.0
         gainLeftSlider.maxValue = 1.0
+        gainLeftSlider.floatValue = 1.0
         gainRightSlider.minValue = 0.0
         gainRightSlider.maxValue = 1.0
+        gainRightSlider.floatValue = 1.0
         gammaSliderRed.minValue = ColorCorrectionConfig.kMinGamma
         gammaSliderRed.maxValue = ColorCorrectionConfig.kMaxGamma
+        gammaSliderRed.floatValue = 0.0
         gammaSliderGreen.minValue = ColorCorrectionConfig.kMinGamma
         gammaSliderGreen.maxValue = ColorCorrectionConfig.kMaxGamma
+        gammaSliderGreen.floatValue = 0.0
         gammaSliderBlue.minValue = ColorCorrectionConfig.kMinGamma
         gammaSliderBlue.maxValue = ColorCorrectionConfig.kMaxGamma
+        gammaSliderBlue.floatValue = 0.0
         gammaSliderLuma.minValue = ColorCorrectionConfig.kMinGamma
         gammaSliderLuma.maxValue = ColorCorrectionConfig.kMaxGamma
+        gammaSliderLuma.floatValue = 0.0
         
         // Assign callbacks to our sliders
         whiteBalanceSlider.setCallbacks(onTentativeValueChanged: onWhiteBalanceSliderChanged, onValueChanged: onWhiteBalanceSliderSet)
@@ -170,7 +176,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     }
     
     func onAudioGainReceived(_ gainL: Int16, _ gainR: Int16) {
-        updateGainWidget(Float(gainL), Float(gainR))
+        //updateGainWidget(Float(gainL), Float(gainR))
     }
     
     func onFocusPeakReceived(_ peak: Int16) {
@@ -234,10 +240,9 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     //this is the preferred way when working with multi value commands
     func onGainSliderSet(_: BlackmagicSlider) {
-        let leftValue = gainLeftSlider.floatValue
-        let rightValue = gainRightSlider.floatValue
-        m_outgoingCameraControlDelegate?.onAudioGainChanged(Double(leftValue), Double(rightValue))
-        updateGainWidget(leftValue, rightValue)
+        if let gainValues : (gainL: Int32, gainR: Int32) = m_outgoingCameraControlDelegate?.onAudioGainChanged(Double(gainLeftSlider.floatValue), Double(gainRightSlider.floatValue)) {
+                updateGainWidget(gainValues.gainL, gainValues.gainR)
+        }
     }
     
     func onGammaSliderSet(_: BlackmagicSlider) {
@@ -393,11 +398,11 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         }
     }
     
-    func updateGainWidget(_ leftValue: Float, _ rightValue: Float) {
-        gainLeftLabel.stringValue = "\(leftValue)"
-        gainLeftSlider.floatValue = leftValue
-        gainRightLabel.stringValue = "\(rightValue)"
-        gainRightSlider.floatValue = rightValue
+    func updateGainWidget(_ leftValue: Int32, _ rightValue: Int32) {
+        gainLeftLabel.stringValue = "\(leftValue)%"
+        //gainLeftSlider.floatValue = Float(leftValue) / 100.0
+        gainRightLabel.stringValue = "\(rightValue)%"
+        //gainRightSlider.floatValue = Float(rightValue) / 100.0
     }
     
     func updateGammaWidget(_ redValue: Float, _ greenValue: Float,_ blueValue: Float,_ lumaValue: Float) {
