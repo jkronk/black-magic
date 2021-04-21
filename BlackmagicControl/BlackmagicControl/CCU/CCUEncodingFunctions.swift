@@ -87,8 +87,9 @@ public struct CCUEncodingFunctions {
         return CreateCommand(value, CCUPacketTypes.Category.Video, CCUPacketTypes.VideoParameter.Exposure.rawValue)
     }
     
-    public static func CreateCodecCommand(_ codec: Int, _ codecVariant: Int) -> (CCUPacketTypes.Command?) {
+    public static func CreateCodecCommand(_ codec: UInt8, _ codecVariant: UInt8) -> (CCUPacketTypes.Command?) {
         let dataArray: [Int8] = [Int8(codec), Int8(codecVariant)]
+        //let dataArray: [Int8] = [Int8(codec)]
         let payloadData: [UInt8] = UtilityFunctions.ToByteArrayFromArray(dataArray)
         
         let command = CCUPacketTypes.InitCommand(

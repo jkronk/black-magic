@@ -67,7 +67,7 @@ class PacketWriter {
         validateAndSendCCUCommand(command)
     }
     
-    func writeCodec(_ codec: Int, _ codecVariant: Int) {
+    func writeCodec(_ codec: UInt8, _ codecVariant: UInt8) {
         let command = CCUEncodingFunctions.CreateCodecCommand(codec, codecVariant)
         validateAndSendCCUCommand(command)
     }

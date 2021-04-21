@@ -711,7 +711,7 @@ public class CameraControlInterface:
         m_packetWriter.writeOnScreenDisplayValue(displayVisisble)
     }
     
-    public func onCodecChanged(_ codec: Int, _ codecVariant: Int) {
+    public func onCodecChanged(_ codec: UInt8, _ codecVariant: UInt8) {
         m_packetWriter.writeCodec(codec, codecVariant)
     }
     

@@ -49,9 +49,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var btnPrev: NSButton!
     @IBOutlet weak var btnNext: NSButton!
     
-    @IBOutlet weak var cmbCodec: NSComboBox!
-    @IBOutlet weak var cmbCodecVariant: NSComboBox!
-    
     @IBOutlet weak var gammaLabelRed: NSTextField!
     @IBOutlet weak var gammaLabelGreen: NSTextField!
     @IBOutlet weak var gammaLabelBlue: NSTextField!
@@ -88,8 +85,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         shutterPresetButtons.append(shutterPreset5Button)
         shutterPresetButtons.append(shutterPreset6Button)
         
-        cmbCodec.addItems(withObjectValues: ["RAW", "DNxHD", "ProRes", "BRAW"])
-        
         // Set values on sliders.
         whiteBalanceSlider.minValue = Double(VideoConfig.kWhiteBalanceMin)
         whiteBalanceSlider.maxValue = Double(VideoConfig.kWhiteBalanceMax)
@@ -103,6 +98,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         isoSlider.maxValue = Double(VideoConfig.kISOValues.count - 1)
         focusPeakSlider.minValue = 0.0
         focusPeakSlider.maxValue = 1.0
+        focusPeakSlider.floatValue = 0.5
         gainLeftSlider.minValue = 0.0
         gainLeftSlider.maxValue = 1.0
         gainLeftSlider.floatValue = 1.0
@@ -246,7 +242,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     }
     
     func onFocusPeakSliderSet(_: BlackmagicSlider) {
-        let newFocusPeakValue = focusPeakSlider.floatValue.rounded()
+        let newFocusPeakValue = focusPeakSlider.floatValue
         updateFocusPeakWidgets(newFocusPeakValue)
         m_outgoingCameraControlDelegate?.onFocusPeakChanged(Double(newFocusPeakValue))
     }
@@ -416,29 +412,69 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         
         m_outgoingCameraControlDelegate?.onScreenDisplayChanged(displayVisible)
     }
-    
-    @IBAction func comboCodecSelectionChanged(_ sender: NSComboBox) {
-        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
         
-        cmbCodecVariant.removeAllItems()
-        if sender.indexOfSelectedItem == 0 {
-            cmbCodecVariant.addItems(withObjectValues: ["Uncompressed", "3:1", "4:1"])
-        }
-        else if sender.indexOfSelectedItem == 2 {
-            cmbCodecVariant.addItems(withObjectValues: ["HQ", "422", "LT", "Proxy", "444", "444XQ"])
-        }
-        else if sender.indexOfSelectedItem == 3 {
-            cmbCodecVariant.addItems(withObjectValues: ["Q0", "Q1", "3:1", "5:1", "8:1", "12:1"])
-        }
-        
-        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
+    @IBAction func onQZeroClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ0)
     }
     
-    @IBAction func cmbCodecVariantSelectionChanged(_ sender: NSComboBox) {
-        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
-        
-        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
+    @IBAction func onQFiveClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ5)
     }
+    
+    @IBAction func onBrawThreeOneClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw3_1)
+    }
+    
+    @IBAction func onBrawFiveOneClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw5_1)
+    }
+    
+    @IBAction func onBrawEightOneClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw8_1)
+    }
+    
+    @IBAction func onBrawTwelveOneClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw12_1)
+    }
+    
+    @IBAction func onProResHQClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProResHQ)
+    }
+    
+    @IBAction func onProRes422Clicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProRes422)
+    }
+    
+    @IBAction func onProResLTClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProResLT)
+    }
+    
+    @IBAction func onProResPXYClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProResProxy)
+    }
+    
+//    @IBAction func comboCodecSelectionChanged(_ sender: NSComboBox) {
+//        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
+//
+//        cmbCodecVariant.removeAllItems()
+//        if sender.indexOfSelectedItem == 0 {
+//            cmbCodecVariant.addItems(withObjectValues: ["Uncompressed", "3:1", "4:1"])
+//        }
+//        else if sender.indexOfSelectedItem == 2 {
+//            cmbCodecVariant.addItems(withObjectValues: ["HQ", "422", "LT", "Proxy", "444", "444XQ"])
+//        }
+//        else if sender.indexOfSelectedItem == 3 {
+//            cmbCodecVariant.addItems(withObjectValues: ["Q0", "Q1", "3:1", "5:1", "8:1", "12:1"])
+//        }
+//
+//        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
+//    }
+//
+//    @IBAction func cmbCodecVariantSelectionChanged(_ sender: NSComboBox) {
+//        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
+//
+//        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
+//    }
     
     @IBAction func chkToggleModeSwitched(_ sender: NSSwitch) {
         
@@ -511,7 +547,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     func updateFocusPeakWidgets(_ newFocusPeakValue: Float) {
         focusPeakSlider.floatValue = newFocusPeakValue
-        focusPeakLabel.stringValue = "\(newFocusPeakValue)"
+        focusPeakLabel.stringValue = "\(Int(floor(newFocusPeakValue * 100)))%"
     }
     
     func updateIsoWidgets(_ index: Int) {
@@ -524,9 +560,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     func updateGainWidget(_ leftValue: Int32, _ rightValue: Int32) {
         gainLeftLabel.stringValue = "\(leftValue)%"
-        //gainLeftSlider.floatValue = Float(leftValue) / 100.0
         gainRightLabel.stringValue = "\(rightValue)%"
-        //gainRightSlider.floatValue = Float(rightValue) / 100.0
     }
     
     func updateGammaWidget(_ redValue: Float, _ greenValue: Float,_ blueValue: Float,_ lumaValue: Float) {

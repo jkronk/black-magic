@@ -26,7 +26,6 @@
  */
 
 import Foundation
-
 public struct CCUPacketTypes {
     public struct PacketFormatIndex {
         public static let Destination: Int = 0
