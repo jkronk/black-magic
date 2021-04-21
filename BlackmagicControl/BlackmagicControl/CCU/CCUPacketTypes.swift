@@ -210,6 +210,7 @@ public struct CCUPacketTypes {
     public enum MediaParameter: UInt8 {
         case Codec = 0
         case TransportMode = 1
+        case PlaybackControl = 2
     }
 
     public enum ExDevControlParameter: UInt8 {
@@ -471,6 +472,11 @@ public struct CCUPacketTypes {
         case PlaybackFile = 1
     }
 
+    public enum PlaybackControl: Int8 {
+        case Previous = 0
+        case Next = 1
+    }
+    
     public struct MetadataMaxStringLength {
         public static let kScene: Int8 = 5
         public static let kCameraId: Int8 = 1

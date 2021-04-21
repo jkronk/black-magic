@@ -185,6 +185,8 @@ struct CCUDecodingFunctions {
             {
             case .PeakingLevel:
                 try DecodePeakingLevel(data: payloadData, respondTo: packetDecodedDelegate)
+            case .FocusAssist:
+                Logger.Log("FOCUS ASSIST DECODING ENABLED")
             default:
                 break
             }

@@ -3,7 +3,7 @@
 import Foundation
 import AppKit
 
-class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
+class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, IncomingSlateToUIDelegate, IncomingRecordControlToUIDelegate {
     
     @IBOutlet weak var whiteBalanceLabel: NSTextField!
     @IBOutlet weak var whiteBalanceSlider: BlackmagicSlider!
@@ -43,11 +43,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBOutlet weak var gainRightLabel: NSTextField!
     @IBOutlet weak var gainRightSlider: BlackmagicSlider!
     
-    @IBOutlet weak var chkToggleMode: NSSwitch!
-    @IBOutlet weak var btnRecord: NSButton!
-    @IBOutlet weak var btnPlay: NSButton!
-    @IBOutlet weak var btnPrev: NSButton!
-    @IBOutlet weak var btnNext: NSButton!
+    @IBOutlet weak var timeCodeLabel: NSTextField!
     
     @IBOutlet weak var gammaLabelRed: NSTextField!
     @IBOutlet weak var gammaLabelGreen: NSTextField!
@@ -65,6 +61,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     var m_shutterValueIsAngle: Bool = true
     weak var m_outgoingCameraControlDelegate: OutgoingCameraControlFromUIDelegate?
     weak var m_outgoingRecordControlDelegate: OutgoingRecordControlFromUIDelegate?
+    weak var m_outgoingSlateControlDelegate: OutgoingSlateFromUIDelegate?
     
     //==================================================
     //    UIViewController methods
@@ -132,17 +129,17 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
         gammaSliderBlue.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
         gammaSliderLuma.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGammaSliderSet)
         
-        btnRecord.isEnabled = true
-        btnPlay.isEnabled = false
-        btnPrev.isEnabled = false
-        btnNext.isEnabled = false
-        
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         let cameraControlInterface: CameraControlInterface = appDelegate.cameraControlInterface
         m_outgoingCameraControlDelegate = cameraControlInterface
         m_outgoingRecordControlDelegate = cameraControlInterface
+        m_outgoingSlateControlDelegate = cameraControlInterface
         cameraControlInterface.m_cameraControlToUIDelegate = self
+        cameraControlInterface.m_slateToUIDelegate = self
+        cameraControlInterface.m_recordControlToUIDelegate = self
         cameraControlInterface.onControlViewLoaded()
+        cameraControlInterface.onSlateViewLoaded()
+        cameraControlInterface.onTransportViewLoaded()
     }
     
     //==================================================
@@ -190,6 +187,10 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     
     func onFocusPeakReceived(_ peak: Int16) {
         updateFocusPeakWidgets(Float(peak))
+    }
+    
+    func onTimecodeReceived(_ timecode: String) {
+        timeCodeLabel.stringValue = timecode
     }
     
     //==================================================
@@ -452,48 +453,9 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     @IBAction func onProResPXYClicked(_ sender: NSButton) {
         m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProResProxy)
     }
-    
-//    @IBAction func comboCodecSelectionChanged(_ sender: NSComboBox) {
-//        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
-//
-//        cmbCodecVariant.removeAllItems()
-//        if sender.indexOfSelectedItem == 0 {
-//            cmbCodecVariant.addItems(withObjectValues: ["Uncompressed", "3:1", "4:1"])
-//        }
-//        else if sender.indexOfSelectedItem == 2 {
-//            cmbCodecVariant.addItems(withObjectValues: ["HQ", "422", "LT", "Proxy", "444", "444XQ"])
-//        }
-//        else if sender.indexOfSelectedItem == 3 {
-//            cmbCodecVariant.addItems(withObjectValues: ["Q0", "Q1", "3:1", "5:1", "8:1", "12:1"])
-//        }
-//
-//        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
-//    }
-//
-//    @IBAction func cmbCodecVariantSelectionChanged(_ sender: NSComboBox) {
-//        if cmbCodec.numberOfItems < 1 || cmbCodecVariant.numberOfItems < 1 { return }
-//
-//        m_outgoingCameraControlDelegate?.onCodecChanged(cmbCodec.indexOfSelectedItem, cmbCodecVariant.indexOfSelectedItem)
-//    }
-    
-    @IBAction func chkToggleModeSwitched(_ sender: NSSwitch) {
-        
-        //start by returning the camera to preview mode
+
+    @IBAction func returnToPreviewPressed(_ sender: NSButton) {
         m_outgoingRecordControlDelegate?.returnToPreviewMode()
-        btnRecord.state = NSControl.StateValue.off
-        btnPlay.state = NSControl.StateValue.off
-        
-        if sender.state == NSControl.StateValue.on {
-            btnRecord.isEnabled = false
-            btnPlay.isEnabled = true
-            btnPrev.isEnabled = true
-            btnNext.isEnabled = true
-        } else {
-            btnRecord.isEnabled = true
-            btnPlay.isEnabled = false
-            btnPrev.isEnabled = false
-            btnNext.isEnabled = false
-        }
     }
     
     @IBAction func btnRecordPressed(_ sender: NSButton) {
@@ -505,13 +467,12 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     }
     
     @IBAction func onNextPressed(_ sender: NSButton) {
-        m_outgoingRecordControlDelegate?.onNextClipPressed()
+        m_outgoingRecordControlDelegate?.onPlaybackChanged(CCUPacketTypes.PlaybackControl.Next.rawValue)
     }
     
     @IBAction func onPrevPressed(_ sender: NSButton) {
-        m_outgoingRecordControlDelegate?.onPrevClipPressed()
+        m_outgoingRecordControlDelegate?.onPlaybackChanged(CCUPacketTypes.PlaybackControl.Previous.rawValue)
     }
-    
     
     //==================================================
     //    UI control

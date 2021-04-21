@@ -134,6 +134,11 @@ class PacketWriter {
         let command = CCUEncodingFunctions.CreateTransportInfoCommand(transportInfo: transportInfo)
         validateAndSendCCUCommand(command)
     }
+    
+    func writePlaybackControlPacket(_ playbackControlMode: Int8) {
+        let command = CCUEncodingFunctions.CreatePlaybackControlCommand(playbackControlMode)
+        validateAndSendCCUCommand(command)
+    }
 
     // Slate commands
     func writeReel(_ reel: Int16) {

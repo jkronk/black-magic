@@ -1036,28 +1036,32 @@ public class CameraControlInterface:
     // OutgoingRecordingControlFromUIDelegate methods
     public func onRecordPressed() {
         var transportInfo = m_cameraState.transportInfo
-        let isCurrentlyInPreview = transportInfo.transportMode == CCUPacketTypes.MediaTransportMode.Preview
-        transportInfo.transportMode = isCurrentlyInPreview ? CCUPacketTypes.MediaTransportMode.Record : CCUPacketTypes.MediaTransportMode.Preview
+        transportInfo.transportMode = CCUPacketTypes.MediaTransportMode.Record
+        m_packetWriter.writeTransportPacket(transportInfo)
+    }
+    
+    public func enterPlayMode() {
+        var transportInfo = m_cameraState.transportInfo
+        transportInfo.transportMode = CCUPacketTypes.MediaTransportMode.Play
         m_packetWriter.writeTransportPacket(transportInfo)
     }
     
     public func onPlayPressed() {
         var transportInfo = m_cameraState.transportInfo
-        let isCurrentlyInPreview = transportInfo.transportMode == CCUPacketTypes.MediaTransportMode.Preview
-        transportInfo.transportMode = isCurrentlyInPreview ? CCUPacketTypes.MediaTransportMode.Play : CCUPacketTypes.MediaTransportMode.Preview
-        m_packetWriter.writeTransportPacket(transportInfo)
-    }
-    
-    public func onNextClipPressed() {
-        var transportInfo = m_cameraState.transportInfo
+        transportInfo.transportMode = CCUPacketTypes.MediaTransportMode.Play
         transportInfo.speed = 1
+        transportInfo.playAll = false
         m_packetWriter.writeTransportPacket(transportInfo)
     }
     
-    public func onPrevClipPressed() {
+    public func onPlaybackChanged(_ playbackControlMode: Int8) {
         var transportInfo = m_cameraState.transportInfo
-        transportInfo.speed = -1
+        transportInfo.transportMode = CCUPacketTypes.MediaTransportMode.Play
+        transportInfo.speed = 0
+        transportInfo.playAll = false
         m_packetWriter.writeTransportPacket(transportInfo)
+        
+        m_packetWriter.writePlaybackControlPacket(playbackControlMode)
     }
     
     public func returnToPreviewMode() {

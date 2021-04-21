@@ -214,10 +214,10 @@ public protocol IncomingRecordControlToUIDelegate: class {
 
 public protocol OutgoingRecordControlFromUIDelegate: class {
     func onRecordPressed()
+    func enterPlayMode()
     func onPlayPressed()
     func returnToPreviewMode()
-    func onNextClipPressed()
-    func onPrevClipPressed()
+    func onPlaybackChanged(_ playbackControlMode: Int8)
     func onDisk1Pressed()
     func onDisk2Pressed()
 }

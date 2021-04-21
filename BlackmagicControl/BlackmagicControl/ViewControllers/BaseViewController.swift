@@ -3,12 +3,12 @@ import AppKit
 
 import CoreBluetooth
 
-class BaseViewController: NSViewController, ConnectionStatusToUIDelegate {
+class BaseViewController: NSViewController, ConnectionStatusToUIDelegate, IncomingSlateToUIDelegate, IncomingRecordControlToUIDelegate {
 
     // Member variables
     var m_selectController: SelectViewController?
     var m_contentController: NSViewController?
-    //var m_mainController: MainViewController?
+    var m_mainController: MainViewController?
 
     //==================================================
     //    UIViewController methods
@@ -20,8 +20,8 @@ class BaseViewController: NSViewController, ConnectionStatusToUIDelegate {
 
         let mainStoryboard: NSStoryboard = NSStoryboard(name: "Main", bundle: nil)
         m_selectController = mainStoryboard.instantiateController(withIdentifier: "selectController") as? SelectViewController
-        
         m_contentController = mainStoryboard.instantiateController(withIdentifier: "contentController") as? ContentViewController
+        m_mainController = mainStoryboard.instantiateController(withIdentifier: "mainController") as? MainViewController
 
         showSelectView()
         //showContentView()

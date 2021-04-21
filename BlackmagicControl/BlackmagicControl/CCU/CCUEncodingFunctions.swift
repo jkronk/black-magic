@@ -154,6 +154,20 @@ public struct CCUEncodingFunctions {
         return command
     }
 
+    public static func CreatePlaybackControlCommand(_ playbackControlMode: Int8) -> (CCUPacketTypes.Command?) {
+        let data: [UInt8] = UtilityFunctions.ToByteArray(playbackControlMode)
+        let command = CCUPacketTypes.InitCommand(
+            target: CCUPacketTypes.kBroadcastTarget,
+            commandId: CCUPacketTypes.CommandID.ChangeConfiguration,
+            category: CCUPacketTypes.Category.Media,
+            parameter: CCUPacketTypes.MediaParameter.PlaybackControl.rawValue,
+            operationType: CCUPacketTypes.OperationType.AssignValue,
+            dataType: CCUPacketTypes.DataTypes.kInt8,
+            data: data)
+
+        return command
+    }
+    
     // Metadata encoding functions
     // Important: All metadata CCU commands are undocumented and are subject to change in a future release
     
