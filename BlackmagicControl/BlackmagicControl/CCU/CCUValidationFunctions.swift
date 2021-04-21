@@ -10,7 +10,7 @@ struct CCUValidationFunctions {
         let packetSize = UInt8(byteArray.count)
         let isSizeValid = (packetSize >= CCUPacketTypes.kPacketSizeMin && packetSize <= CCUPacketTypes.kPacketSizeMax)
         if !isSizeValid {
-            //Logger.LogWithInfo("CCU packet (\(packetSize) bytes) is not between \(CCUPacketTypes.kPacketSizeMin) and \(CCUPacketTypes.kPacketSizeMax) bytes.")
+            Logger.LogWithInfo("CCU packet (\(packetSize) bytes) is not between \(CCUPacketTypes.kPacketSizeMin) and \(CCUPacketTypes.kPacketSizeMax) bytes.")
             return false
         }
 
@@ -31,10 +31,12 @@ struct CCUValidationFunctions {
 
         var isParamterValid = false
         let parameterValue: UInt8 = byteArray[CCUPacketTypes.PacketFormatIndex.Parameter]
+        //Logger.LogWithInfo("CCU Packet Parameter RX:(\(parameterValue)).")
         switch category!
         {
         case .Lens:
             let parameter = CCUPacketTypes.LensParameter(rawValue: parameterValue)
+            //Logger.LogWithInfo("CCU Packet LENS Parameter RX:(\(parameter)).")
             isParamterValid = parameter != nil
         case .Video:
             let parameter = CCUPacketTypes.VideoParameter(rawValue: parameterValue)
@@ -71,11 +73,12 @@ struct CCUValidationFunctions {
             isParamterValid = parameter != nil
         case .Metadata:
             let parameter = CCUPacketTypes.MetadataParameter(rawValue: parameterValue)
+            //Logger.LogWithInfo("CCU Packet Meta Data Parameter RX:(\(parameter)).")
             isParamterValid = parameter != nil
         }
 
         if !isParamterValid {
-            //Logger.LogWithInfo("CCU packet has invalid parameter \(parameterValue) for category \(category.getString()).")
+            Logger.LogWithInfo("CCU packet has invalid parameter \(parameterValue) for category \(category.getString()).")
             return false
         }
 
