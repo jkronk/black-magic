@@ -271,6 +271,80 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate {
     //==================================================
     //    IBActions
     //==================================================
+    @IBAction func onNextWhiteBalanceClicked(_ sender: NSButton) {
+        if let newValues: (whiteBalance: Int16, presetIndex: Int) = m_outgoingCameraControlDelegate?.onWhiteBalanceIncremented() {
+            updateWhiteBalanceWidgets(newValues.whiteBalance)
+            wbPresetButtons.forEach { $0.isSelected = $0.tag == newValues.presetIndex }
+        }
+    }
+    
+    @IBAction func onPrevWhiteBalanceClicked(_ sender: NSButton) {
+        if let newValues: (whiteBalance: Int16, presetIndex: Int) = m_outgoingCameraControlDelegate?.onWhiteBalanceDecremented() {
+            updateWhiteBalanceWidgets(newValues.whiteBalance)
+            wbPresetButtons.forEach { $0.isSelected = $0.tag == newValues.presetIndex }
+        }
+    }
+    
+    @IBAction func onPrevTintButtonClicked(_: NSButton) {
+        if let newValues: (tint: Int16, presetIndex: Int) = m_outgoingCameraControlDelegate?.onTintDecremented() {
+            updateTintWidgets(newValues.tint)
+            wbPresetButtons.forEach { $0.isSelected = $0.tag == newValues.presetIndex }
+        }
+    }
+
+    @IBAction func onNextTintButtonClicked(_: NSButton) {
+        if let newValues: (tint: Int16, presetIndex: Int) = m_outgoingCameraControlDelegate?.onTintIncremented() {
+            updateTintWidgets(newValues.tint)
+            wbPresetButtons.forEach { $0.isSelected = $0.tag == newValues.presetIndex }
+        }
+    }
+    
+    @IBAction func onPrevIrisButtonClicked(_: NSButton) {
+        let newIrisIndex = m_outgoingCameraControlDelegate?.onIrisDecremented()
+        if newIrisIndex != nil {
+            updateIrisWidgets(newIrisIndex!)
+        }
+    }
+
+    @IBAction func onNextIrisButtonClicked(_: NSButton) {
+        let newIrisIndex = m_outgoingCameraControlDelegate?.onIrisIncremented()
+        if newIrisIndex != nil {
+            updateIrisWidgets(newIrisIndex!)
+        }
+    }
+
+    @IBAction func onPrevShutterButtonClicked(_: NSButton) {
+        let newShutterValue = m_outgoingCameraControlDelegate?.onShutterDecremented()
+        if newShutterValue != nil {
+            updateShutterWidgets(Float(newShutterValue!))
+            shutterPresetButtons.forEach { $0.isSelected = false }
+        }
+    }
+
+    @IBAction func onNextShutterButtonClicked(_: NSButton) {
+        let newShutterValue = m_outgoingCameraControlDelegate?.onShutterIncremented()
+        if newShutterValue != nil {
+            updateShutterWidgets(Float(newShutterValue!))
+            shutterPresetButtons.forEach { $0.isSelected = false }
+        }
+    }
+    
+    @IBAction func onNextIsoButtonClicked(_: NSButton) {
+        let newIsoValue = Int(isoSlider.floatValue) + 1
+        if newIsoValue < VideoConfig.kISOValues.count {
+            m_outgoingCameraControlDelegate?.onISOChanged(newIsoValue)
+            updateIsoWidgets(newIsoValue)
+        }
+    }
+    
+    @IBAction func onPrevIsoButtonClicked(_: NSButton) {
+        let newIsoValue = Int(isoSlider.floatValue) - 1
+        if newIsoValue >= 0 {
+            m_outgoingCameraControlDelegate?.onISOChanged(newIsoValue)
+            updateIsoWidgets(newIsoValue)
+        }
+    }
+    
     @IBAction func onAutoFocusButtonClicked(_ sender: NSButton){
         m_outgoingCameraControlDelegate?.OnAutoFocusPressed()
     }
