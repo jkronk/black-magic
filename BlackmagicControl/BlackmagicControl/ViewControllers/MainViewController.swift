@@ -348,13 +348,13 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     
     @IBAction func onNextFocusButtonClicked(_ sender: NSButton) {
         if let newFocus = m_outgoingCameraControlDelegate?.onFocusIncremented() {
-            updateFocusText(Float(newFocus))
+            //updateFocusText(Float(newFocus))
         }
     }
     
     @IBAction func onPrevFocusButtonClicked(_ sender: NSButton) {
         if let newFocus = m_outgoingCameraControlDelegate?.onFocusDecremented() {
-            updateFocusText(Float(newFocus))
+            //updateFocusText(Float(newFocus))
         }
     }
     

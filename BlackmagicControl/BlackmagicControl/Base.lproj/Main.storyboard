@@ -1171,7 +1171,7 @@
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osr-qZ-BY4">
                                             <rect key="frame" x="10" y="176" width="38" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="◀" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="QX0-lB-Y3l">
+                                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSMenuMixedStateTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="QX0-lB-Y3l">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -1182,7 +1182,7 @@
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g05-RE-h0c">
                                             <rect key="frame" x="143" y="172" width="38" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="bevel" title="▶" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="N07-A0-fB0">
+                                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="N07-A0-fB0">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -1193,7 +1193,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYZ-1x-hvZ">
                                             <rect key="frame" x="51" y="172" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0.5" id="iAf-hF-oyi">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Focus" id="iAf-hF-oyi">
                                                 <font key="font" metaFont="system" size="18"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1782,4 +1782,8 @@
             <point key="canvasLocation" x="298.5" y="1069.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="14" height="13"/>
+        <image name="NSMenuMixedStateTemplate" width="14" height="4"/>
+    </resources>
 </document>

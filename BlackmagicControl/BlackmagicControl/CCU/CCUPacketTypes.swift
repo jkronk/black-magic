@@ -560,7 +560,7 @@ public struct CCUPacketTypes {
                 let packetIndex = PacketFormatIndex.PayloadStart + Int(payloadIndex)
                 buffer[packetIndex] = data[Int(payloadIndex)]
             }
-
+            
             return Data(bytes: buffer)
         }
     }

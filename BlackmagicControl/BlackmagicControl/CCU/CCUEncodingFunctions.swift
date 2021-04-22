@@ -262,6 +262,20 @@ public struct CCUEncodingFunctions {
         return command
     }
 
+    public static func CreateFocusOffsetCommand(_ value: CCUPacketTypes.ccu_fixed_t) -> (CCUPacketTypes.Command?) {
+        let data: [UInt8] = UtilityFunctions.ToByteArray(value)
+        let command = CCUPacketTypes.InitCommand(
+            target: CCUPacketTypes.kBroadcastTarget,
+            commandId: CCUPacketTypes.CommandID.ChangeConfiguration,
+            category: CCUPacketTypes.Category.Lens,
+            parameter: CCUPacketTypes.LensParameter.Focus.rawValue,
+            operationType: CCUPacketTypes.OperationType.OffsetValue,
+            dataType: CCUPacketTypes.DataTypes.kFixed16,
+            data: data)
+
+        return command
+    }
+    
     public static func CreateFixed16Command(_ value: CCUPacketTypes.ccu_fixed_t, _ category: CCUPacketTypes.Category, _ parameter: UInt8) -> (CCUPacketTypes.Command?) {
         let data: [UInt8] = UtilityFunctions.ToByteArray(value)
         let command = CCUPacketTypes.InitCommand(

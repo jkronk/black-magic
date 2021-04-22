@@ -108,9 +108,7 @@ class PacketWriter {
     }
 
     func writeFocus(_ focus: Int16) {
-        let command = CCUEncodingFunctions.CreateFixed16Command(focus,
-            CCUPacketTypes.Category.Lens,
-            CCUPacketTypes.LensParameter.Focus.rawValue)
+        let command = CCUEncodingFunctions.CreateFocusOffsetCommand(focus)
         validateAndSendCCUCommand(command)
     }
     
