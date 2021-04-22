@@ -35,6 +35,9 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     
     @IBOutlet weak var focusLabel: NSTextField!
     
+    @IBOutlet weak var focusOffsetLabel: NSTextField!
+    @IBOutlet weak var focusOffsetSlider: BlackmagicSlider!
+    
     @IBOutlet weak var focusPeakLabel: NSTextField!
     @IBOutlet weak var focusPeakSlider: BlackmagicSlider!
     
@@ -121,6 +124,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         irisSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onIrisSliderSet)
         shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
         isoSlider.setCallbacks(onValueChanged: onIsoSliderSet)
+        focusOffsetSlider.setCallbacks(onValueChanged: onFocusOffsetSliderSet)
         focusPeakSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onFocusPeakSliderSet)
         gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
         gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
@@ -242,6 +246,11 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         updateIsoWidgets(newIsoIndex)
     }
     
+    func onFocusOffsetSliderSet(_: BlackmagicSlider) {
+        let focusOffsetValue = LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue)]
+        focusOffsetLabel.stringValue = "\(ceil(focusOffsetValue * 100) / 100.0)mm"
+    }
+    
     func onFocusPeakSliderSet(_: BlackmagicSlider) {
         let newFocusPeakValue = focusPeakSlider.floatValue
         updateFocusPeakWidgets(newFocusPeakValue)
@@ -347,15 +356,13 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     }
     
     @IBAction func onNextFocusButtonClicked(_ sender: NSButton) {
-        if let newFocus = m_outgoingCameraControlDelegate?.onFocusIncremented() {
-            //updateFocusText(Float(newFocus))
-        }
+        let focusOffsetValue = LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue)]
+        m_outgoingCameraControlDelegate?.onFocusChanged(Double(focusOffsetValue))
     }
     
     @IBAction func onPrevFocusButtonClicked(_ sender: NSButton) {
-        if let newFocus = m_outgoingCameraControlDelegate?.onFocusDecremented() {
-            //updateFocusText(Float(newFocus))
-        }
+        let focusOffsetValue = -(LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue)])
+        m_outgoingCameraControlDelegate?.onFocusChanged(Double(focusOffsetValue))
     }
     
     @IBAction func onFocusPeakClicked(_ sender: NSButton) {

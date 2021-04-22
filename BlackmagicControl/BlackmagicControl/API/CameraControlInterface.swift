@@ -727,31 +727,6 @@ public class CameraControlInterface:
         m_packetWriter.writeFocusAssistColorPressed(color)
     }
     
-    public func onFocusIncremented() -> Double {
-//        var newFocus = m_cameraState.focus + 0.1
-//        if newFocus > LensConfig.kMaxFocus {
-//            newFocus = LensConfig.kMaxFocus
-//        }
-        
-        //send just an offset value of 0.1
-        let newFocus = 0.025
-        onFocusChanged(newFocus)
-        
-        return newFocus
-    }
-    
-    public func onFocusDecremented() -> Double {
-//        var newFocus = m_cameraState.focus - 0.1
-//        if newFocus < LensConfig.kMinFocus {
-//            newFocus = LensConfig.kMinFocus
-//        }
-        
-        let newFocus = -0.025
-        onFocusChanged(newFocus)
-        
-        return newFocus
-    }
-    
     public func onFocusChanged(_ newFocus: Double) {
         let focusValue = CCUPacketTypes.CCUFixedFromFloat(newFocus)
         let addedExpectedValue = m_cameraState.expectedFocus.addExpectedValue(focusValue)

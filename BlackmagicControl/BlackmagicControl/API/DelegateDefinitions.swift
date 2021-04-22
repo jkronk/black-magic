@@ -184,8 +184,7 @@ public protocol OutgoingCameraControlFromUIDelegate: class {
 
     func onISOChanged(_ isoIndex: Int)
     
-    func onFocusIncremented() -> Double
-    func onFocusDecremented() -> Double
+    func onFocusChanged(_ newFocus: Double)
     func OnAutoFocusPressed()
     func onFocusPeakPressed()
     func onFocusAssistColorPressed(_ color: Int32)

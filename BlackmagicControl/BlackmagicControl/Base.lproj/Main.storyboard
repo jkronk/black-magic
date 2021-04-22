@@ -1169,7 +1169,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osr-qZ-BY4">
-                                            <rect key="frame" x="10" y="176" width="38" height="16"/>
+                                            <rect key="frame" x="10" y="179" width="38.5" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSMenuMixedStateTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="QX0-lB-Y3l">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1180,7 +1180,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g05-RE-h0c">
-                                            <rect key="frame" x="143" y="172" width="38" height="25"/>
+                                            <rect key="frame" x="143" y="170.5" width="38.5" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="N07-A0-fB0">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1191,7 +1191,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYZ-1x-hvZ">
-                                            <rect key="frame" x="51" y="172" width="86" height="23"/>
+                                            <rect key="frame" x="41" y="173" width="86" height="23"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Focus" id="iAf-hF-oyi">
                                                 <font key="font" metaFont="system" size="18"/>
@@ -1274,6 +1274,20 @@
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOJ-ZV-aar" customClass="BlackmagicSlider" customModule="BlackmagicControl" customModuleProvider="target">
+                                            <rect key="frame" x="117" y="175" width="18" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <sliderCell key="cell" controlSize="small" state="on" alignment="left" maxValue="9" allowsTickMarkValuesOnly="YES" sliderType="circular" id="3wK-YK-BAO" customClass="BlackmagicSliderCell" customModule="BlackmagicControl" customModuleProvider="target"/>
+                                        </slider>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GEW-yt-nzT">
+                                            <rect key="frame" x="103" y="165" width="41" height="11"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title=".006mm" id="hrU-yH-yo7">
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                     </subviews>
@@ -1739,6 +1753,8 @@
                     </view>
                     <connections>
                         <outlet property="focusLabel" destination="dYZ-1x-hvZ" id="bc6-ge-l0t"/>
+                        <outlet property="focusOffsetLabel" destination="GEW-yt-nzT" id="B1P-mI-ujb"/>
+                        <outlet property="focusOffsetSlider" destination="bOJ-ZV-aar" id="FyZ-JA-QmD"/>
                         <outlet property="focusPeakLabel" destination="iZW-64-eM9" id="hR1-iF-IFu"/>
                         <outlet property="focusPeakSlider" destination="QmG-XS-4qc" id="bqU-Yx-Hxd"/>
                         <outlet property="gainLeftLabel" destination="nqO-A6-nqq" id="qL7-kh-iZU"/>
