@@ -1277,19 +1277,10 @@
                                             </textFieldCell>
                                         </textField>
                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOJ-ZV-aar" customClass="BlackmagicSlider" customModule="BlackmagicControl" customModuleProvider="target">
-                                            <rect key="frame" x="117" y="175" width="18" height="20"/>
+                                            <rect key="frame" x="117" y="177" width="18" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" controlSize="small" state="on" alignment="left" maxValue="9" allowsTickMarkValuesOnly="YES" sliderType="circular" id="3wK-YK-BAO" customClass="BlackmagicSliderCell" customModule="BlackmagicControl" customModuleProvider="target"/>
+                                            <sliderCell key="cell" controlSize="small" state="on" alignment="left" minValue="1" maxValue="10" doubleValue="1" allowsTickMarkValuesOnly="YES" sliderType="circular" id="3wK-YK-BAO" customClass="BlackmagicSliderCell" customModule="BlackmagicControl" customModuleProvider="target"/>
                                         </slider>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GEW-yt-nzT">
-                                            <rect key="frame" x="103" y="165" width="41" height="11"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title=".006mm" id="hrU-yH-yo7">
-                                                <font key="font" metaFont="miniSystem"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="iZW-64-eM9" secondAttribute="trailing" constant="20" symbolic="YES" id="lEW-s4-OJB"/>
@@ -1444,7 +1435,7 @@
                                     </constraints>
                                 </view>
                             </box>
-                            <box fixedFrame="YES" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="KoR-ro-Zzw">
+                            <box fixedFrame="YES" title="Color Correction" translatesAutoresizingMaskIntoConstraints="NO" id="KoR-ro-Zzw">
                                 <rect key="frame" x="457" y="8" width="200" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="8XN-6O-05m">
@@ -1753,7 +1744,6 @@
                     </view>
                     <connections>
                         <outlet property="focusLabel" destination="dYZ-1x-hvZ" id="bc6-ge-l0t"/>
-                        <outlet property="focusOffsetLabel" destination="GEW-yt-nzT" id="B1P-mI-ujb"/>
                         <outlet property="focusOffsetSlider" destination="bOJ-ZV-aar" id="FyZ-JA-QmD"/>
                         <outlet property="focusPeakLabel" destination="iZW-64-eM9" id="hR1-iF-IFu"/>
                         <outlet property="focusPeakSlider" destination="QmG-XS-4qc" id="bqU-Yx-Hxd"/>
@@ -1773,6 +1763,7 @@
                         <outlet property="irisSlider" destination="lge-N2-AFj" id="S91-sf-OIR"/>
                         <outlet property="isoLabel" destination="9GM-GT-qQT" id="xpw-zb-a3T"/>
                         <outlet property="isoSlider" destination="8Zd-2k-kQK" id="Z5L-t5-G55"/>
+                        <outlet property="recordButton" destination="SGn-M4-4WX" id="Eyj-98-2td"/>
                         <outlet property="shutterLabel" destination="T3N-Bo-s0k" id="zyU-O4-bW2"/>
                         <outlet property="shutterPreset1Button" destination="SCk-hO-bAm" id="kwf-rK-eDJ"/>
                         <outlet property="shutterPreset2Button" destination="UnZ-WG-2IX" id="cmR-N9-a3N"/>

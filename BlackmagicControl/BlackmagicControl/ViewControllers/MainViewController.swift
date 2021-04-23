@@ -35,7 +35,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     
     @IBOutlet weak var focusLabel: NSTextField!
     
-    @IBOutlet weak var focusOffsetLabel: NSTextField!
     @IBOutlet weak var focusOffsetSlider: BlackmagicSlider!
     
     @IBOutlet weak var focusPeakLabel: NSTextField!
@@ -46,6 +45,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     @IBOutlet weak var gainRightLabel: NSTextField!
     @IBOutlet weak var gainRightSlider: BlackmagicSlider!
     
+    @IBOutlet weak var recordButton: NSButton!
     @IBOutlet weak var timeCodeLabel: NSTextField!
     
     @IBOutlet weak var gammaLabelRed: NSTextField!
@@ -61,6 +61,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     var wbPresetButtons = [NSButton]()
     var shutterPresetButtons = [NSButton]()
     
+    var m_isRecording: Bool = false
     var m_shutterValueIsAngle: Bool = true
     weak var m_outgoingCameraControlDelegate: OutgoingCameraControlFromUIDelegate?
     weak var m_outgoingRecordControlDelegate: OutgoingRecordControlFromUIDelegate?
@@ -124,7 +125,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         irisSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onIrisSliderSet)
         shutterSlider.setCallbacks(onTentativeValueChanged: onShutterSliderChanged, onValueChanged: onShutterSliderSet)
         isoSlider.setCallbacks(onValueChanged: onIsoSliderSet)
-        focusOffsetSlider.setCallbacks(onValueChanged: onFocusOffsetSliderSet)
         focusPeakSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onFocusPeakSliderSet)
         gainLeftSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
         gainRightSlider.setCallbacks(onTentativeValueChanged: nil, onValueChanged: onGainSliderSet)
@@ -197,6 +197,16 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         timeCodeLabel.stringValue = timecode
     }
     
+    func onTransportModeReceived(_ transportMode: CCUPacketTypes.MediaTransportMode) {
+        m_isRecording = transportMode == CCUPacketTypes.MediaTransportMode.Record
+        
+        if m_isRecording {
+            recordButton.title = "STOP RECORDING"
+        } else {
+            recordButton.title = "START RECORDING"
+        }
+    }
+    
     //==================================================
     //    BlackmagicSlider callbacks
     //==================================================
@@ -246,11 +256,6 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         updateIsoWidgets(newIsoIndex)
     }
     
-    func onFocusOffsetSliderSet(_: BlackmagicSlider) {
-        let focusOffsetValue = LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue)]
-        focusOffsetLabel.stringValue = "\(ceil(focusOffsetValue * 100) / 100.0)mm"
-    }
-    
     func onFocusPeakSliderSet(_: BlackmagicSlider) {
         let newFocusPeakValue = focusPeakSlider.floatValue
         updateFocusPeakWidgets(newFocusPeakValue)
@@ -273,6 +278,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         m_outgoingCameraControlDelegate?.onGammaChanged(Double(redValue), Double(greenValue), Double(blueValue), Double(lumaValue))
         updateGammaWidget(redValue, greenValue, blueValue, lumaValue)
     }
+    
     
     //==================================================
     //    IBActions
@@ -356,12 +362,12 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     }
     
     @IBAction func onNextFocusButtonClicked(_ sender: NSButton) {
-        let focusOffsetValue = LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue)]
+        let focusOffsetValue = LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue) - 1]
         m_outgoingCameraControlDelegate?.onFocusChanged(Double(focusOffsetValue))
     }
     
     @IBAction func onPrevFocusButtonClicked(_ sender: NSButton) {
-        let focusOffsetValue = -(LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue)])
+        let focusOffsetValue = -(LensConfig.focusOffsetValues[Int(focusOffsetSlider.floatValue) - 1])
         m_outgoingCameraControlDelegate?.onFocusChanged(Double(focusOffsetValue))
     }
     
@@ -466,7 +472,11 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     }
     
     @IBAction func btnRecordPressed(_ sender: NSButton) {
-        m_outgoingRecordControlDelegate?.onRecordPressed()
+        if m_isRecording {
+            m_outgoingRecordControlDelegate?.returnToPreviewMode()
+        } else {
+            m_outgoingRecordControlDelegate?.onRecordPressed()
+        }
     }
     
     @IBAction func btnPlayPressed(_ sender: NSButton) {
