@@ -1387,7 +1387,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COI-FB-hwE">
-                                            <rect key="frame" x="10" y="96" width="78" height="18"/>
+                                            <rect key="frame" x="4" y="96" width="45" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="inline" title="Q0" bezelStyle="inline" alignment="center" controlSize="small" borderStyle="border" inset="2" id="xDf-EB-fNi">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1398,7 +1398,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rW8-b0-FSR">
-                                            <rect key="frame" x="110" y="96" width="78" height="18"/>
+                                            <rect key="frame" x="147" y="96" width="45" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="inline" title="Q5" bezelStyle="inline" alignment="center" controlSize="small" borderStyle="border" inset="2" id="i1C-P9-gmF">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1429,6 +1429,28 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHd-aP-DJF">
+                                            <rect key="frame" x="52" y="96" width="45" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="inline" title="Q1" bezelStyle="inline" alignment="center" controlSize="small" borderStyle="border" inset="2" id="JwS-a1-Whj">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="smallSystemBold"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onQOneClicked:" target="8Zi-EG-gEZ" id="8OA-10-WOy"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qhs-RE-ail">
+                                            <rect key="frame" x="100" y="96" width="45" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="inline" title="Q3" bezelStyle="inline" alignment="center" controlSize="small" borderStyle="border" inset="2" id="EAf-ak-dUS">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="smallSystemBold"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onQThreeClicked:" target="8Zi-EG-gEZ" id="i84-EN-6I8"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ihu-c0-Vfs" firstAttribute="centerX" secondItem="1a0-8p-yAm" secondAttribute="centerX" id="bx8-An-KPi"/>

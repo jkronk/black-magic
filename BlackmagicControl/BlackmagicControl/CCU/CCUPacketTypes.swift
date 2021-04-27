@@ -412,6 +412,8 @@ public struct CCUPacketTypes {
         
         public static let kBrawQ0: CodecVariant = 0
         public static let kBrawQ5: CodecVariant = 1
+        public static let kBrawQ1: CodecVariant = 7
+        public static let kBrawQ3: CodecVariant = 8
         public static let kBraw3_1: CodecVariant = 2
         public static let kBraw5_1: CodecVariant = 3
         public static let kBraw8_1: CodecVariant = 4

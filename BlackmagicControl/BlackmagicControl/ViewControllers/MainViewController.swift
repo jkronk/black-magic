@@ -431,6 +431,14 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ0)
     }
     
+    @IBAction func onQOneClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ1)
+    }
+    
+    @IBAction func onQThreeClicked(_ sender: NSButton) {
+        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ3)
+    }
+    
     @IBAction func onQFiveClicked(_ sender: NSButton) {
         m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ5)
     }
