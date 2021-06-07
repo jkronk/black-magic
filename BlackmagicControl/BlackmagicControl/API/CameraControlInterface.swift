@@ -723,8 +723,8 @@ public class CameraControlInterface:
         m_packetWriter.writeFocusPeakPressed()
     }
 
-    public func onFocusAssistColorPressed(_ color: Int32) {
-        m_packetWriter.writeFocusAssistColorPressed(color)
+    public func onColorLinesColorPressed(_ color: Int32) {
+        m_packetWriter.writeColorLinesColorPressed(color)
     }
     
     public func onFocusChanged(_ newFocus: Double) {

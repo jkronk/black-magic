@@ -376,15 +376,15 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     }
     
     @IBAction func onFocusRedClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onFocusAssistColorPressed(CCUPacketTypes.DisplayFocusAssistColour.Red.rawValue)
+        m_outgoingCameraControlDelegate?.onColorLinesColorPressed(CCUPacketTypes.DisplayFocusAssistColour.Red.rawValue)
     }
     
     @IBAction func onFocusGreenClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onFocusAssistColorPressed(CCUPacketTypes.DisplayFocusAssistColour.Green.rawValue)
+        m_outgoingCameraControlDelegate?.onColorLinesColorPressed(CCUPacketTypes.DisplayFocusAssistColour.Green.rawValue)
     }
     
     @IBAction func onFocusWhiteClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onFocusAssistColorPressed(CCUPacketTypes.DisplayFocusAssistColour.White.rawValue)
+        m_outgoingCameraControlDelegate?.onColorLinesColorPressed(CCUPacketTypes.DisplayFocusAssistColour.White.rawValue)
     }
     
     @IBAction func onResetGammaButtonClicked(_ sender: NSButton) {
