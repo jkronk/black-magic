@@ -1,61 +1,61 @@
 {
   "images" : [
     {
-      "filename" : "image001 (1)-16.png",
+      "filename" : "Eye-con-16.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "image001 (1)-32.png",
+      "filename" : "Eye-con-32.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "image001 (1)-33.png",
+      "filename" : "Eye-con-33.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "image001 (1)-64.png",
+      "filename" : "Eye-con-64.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "image001 (1)-128.png",
+      "filename" : "Eye-con-128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "image001 (1)-257.png",
+      "filename" : "Eye-con-256.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "image001 (1)-256.png",
+      "filename" : "Eye-con-257.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "image001 (1)-512.png",
+      "filename" : "Eye-con-512.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "image001 (1)-513.png",
+      "filename" : "Eye-con-513.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "image001 (1)-1024.png",
+      "filename" : "Eye-con-1024.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

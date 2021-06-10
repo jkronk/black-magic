@@ -33,6 +33,19 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     @IBOutlet weak var shutterPreset5Button: NSButton!
     @IBOutlet weak var shutterPreset6Button: NSButton!
     
+    @IBOutlet weak var brawThreeOne: NSButton!
+    @IBOutlet weak var brawFiveOne: NSButton!
+    @IBOutlet weak var brawEightOne: NSButton!
+    @IBOutlet weak var brawTwelveOne: NSButton!
+    @IBOutlet weak var brawQ0: NSButton!
+    @IBOutlet weak var brawQ1: NSButton!
+    @IBOutlet weak var brawQ3: NSButton!
+    @IBOutlet weak var brawQ5: NSButton!
+    @IBOutlet weak var proResHq: NSButton!
+    @IBOutlet weak var proResLt: NSButton!
+    @IBOutlet weak var proRes422: NSButton!
+    @IBOutlet weak var proResPxy: NSButton!
+    
     @IBOutlet weak var focusLabel: NSTextField!
     
     @IBOutlet weak var focusOffsetSlider: BlackmagicSlider!
@@ -60,6 +73,7 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     
     var wbPresetButtons = [NSButton]()
     var shutterPresetButtons = [NSButton]()
+    var codecButtons = [NSButton]()
     
     var m_isRecording: Bool = false
     var m_shutterValueIsAngle: Bool = true
@@ -85,6 +99,19 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         shutterPresetButtons.append(shutterPreset4Button)
         shutterPresetButtons.append(shutterPreset5Button)
         shutterPresetButtons.append(shutterPreset6Button)
+        
+        codecButtons.append(brawThreeOne);
+        codecButtons.append(brawFiveOne);
+        codecButtons.append(brawEightOne);
+        codecButtons.append(brawTwelveOne);
+        codecButtons.append(brawQ0);
+        codecButtons.append(brawQ1);
+        codecButtons.append(brawQ3);
+        codecButtons.append(brawQ5);
+        codecButtons.append(proResHq);
+        codecButtons.append(proResLt);
+        codecButtons.append(proRes422);
+        codecButtons.append(proResPxy);
         
         // Set values on sliders.
         whiteBalanceSlider.minValue = Double(VideoConfig.kWhiteBalanceMin)
@@ -427,52 +454,54 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
         m_outgoingCameraControlDelegate?.onScreenDisplayChanged(displayVisible)
     }
         
+    
+    
     @IBAction func onQZeroClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ0)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBrawQ0)
     }
     
     @IBAction func onQOneClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ1)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBrawQ1)
     }
     
     @IBAction func onQThreeClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ3)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBrawQ3)
     }
     
     @IBAction func onQFiveClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBrawQ5)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBrawQ5)
     }
     
     @IBAction func onBrawThreeOneClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw3_1)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBraw3_1)
     }
     
     @IBAction func onBrawFiveOneClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw5_1)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBraw5_1)
     }
     
     @IBAction func onBrawEightOneClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw8_1)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBraw8_1)
     }
     
     @IBAction func onBrawTwelveOneClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.BRAW.rawValue, CCUPacketTypes.CodecVariants.kBraw12_1)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.BRAW, CCUPacketTypes.CodecVariants.kBraw12_1)
     }
     
     @IBAction func onProResHQClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProResHQ)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.ProRes, CCUPacketTypes.CodecVariants.kProResHQ)
     }
     
     @IBAction func onProRes422Clicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProRes422)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.ProRes, CCUPacketTypes.CodecVariants.kProRes422)
     }
     
     @IBAction func onProResLTClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProResLT)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.ProRes, CCUPacketTypes.CodecVariants.kProResLT)
     }
     
     @IBAction func onProResPXYClicked(_ sender: NSButton) {
-        m_outgoingCameraControlDelegate?.onCodecChanged(CCUPacketTypes.BasicCodec.ProRes.rawValue, CCUPacketTypes.CodecVariants.kProResProxy)
+        codecClicked(sender, CCUPacketTypes.BasicCodec.ProRes, CCUPacketTypes.CodecVariants.kProResProxy)
     }
 
     @IBAction func returnToPreviewPressed(_ sender: NSButton) {
@@ -566,6 +595,16 @@ class MainViewController: NSViewController, IncomingCameraControlToUIDelegate, I
     
     func roundGamma(_ gamma: Float) -> Float {
         return floor(gamma * 10) / 10.0
+    }
+    
+    func codecClicked(_ sender:NSButton,_ codec: CCUPacketTypes.BasicCodec,_ codecVariant: UInt8) {
+        let currentlySelected = !sender.isSelected
+        codecButtons.forEach { $0.isSelected = false }
+        
+        m_outgoingCameraControlDelegate?.onCodecChanged(codec.rawValue, codecVariant)
+        
+        sender.isSelected = !currentlySelected
+        codecButtons.last!.isSelected = false
     }
 }
 
