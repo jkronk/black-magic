@@ -32,10 +32,14 @@ class BaseViewController: NSViewController, ConnectionStatusToUIDelegate, Incomi
     //    ConnectionStatusToUIDelegate methods
     //==================================================
     func onConnectionLost() {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        if appDelegate.cameraControlInterface.m_isSimulatorMode { return }
         switchToSelectView()
     }
 
     func onDisconnection() {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        if appDelegate.cameraControlInterface.m_isSimulatorMode { return }
         switchToSelectView()
     }
 

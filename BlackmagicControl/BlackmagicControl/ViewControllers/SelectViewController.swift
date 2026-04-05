@@ -11,12 +11,24 @@ class SelectViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
     weak var m_initialConnectionInterfaceDelegate: InitialConnectionFromUIDelegate?
     var m_displayedCameras = [DiscoveredPeripheral]()
     var m_selectedCameraIdentifer: UUID?
+    var m_simulateButton: NSButton?
     
     //UIViewController methods
     override func viewDidLoad() {
-        //asign self as the nstableviewdelegate and nstableviewdatasource of the camera table view
         cameraTableView.delegate = self
         cameraTableView.dataSource = self
+        
+        let simulateButton = NSButton(title: "Simulate Camera", target: self, action: #selector(onSimulateButtonClicked(_:)))
+        simulateButton.bezelStyle = .rounded
+        simulateButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(simulateButton)
+        
+        NSLayoutConstraint.activate([
+            simulateButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -5),
+            simulateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -6)
+        ])
+        
+        m_simulateButton = simulateButton
     }
     
     override func viewWillAppear() {
@@ -43,6 +55,11 @@ class SelectViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
             m_initialConnectionInterfaceDelegate?.attemptConnection(to: uuid)
             messageLabel.stringValue = String.Localized("Information.Connecting")
         }
+    }
+    
+    @objc func onSimulateButtonClicked(_: Any) {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        appDelegate.cameraControlInterface.enterSimulatorMode()
     }
     
     //nstableviewdelegate methods

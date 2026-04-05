@@ -42,6 +42,7 @@ public class CameraControlInterface:
     }
 
     var m_connectionStatus: UInt8 = 0
+    var m_isSimulatorMode: Bool = false
 
     public weak var m_initialConnectionToUIDelegate: InitialConnectionToUIDelegate?
     public weak var m_cameraControlToUIDelegate: IncomingCameraControlToUIDelegate?
@@ -87,6 +88,40 @@ public class CameraControlInterface:
     
     public func setSuspended(_ suspended: Bool) {
         m_isSuspended = suspended
+    }
+
+    public func enterSimulatorMode() {
+        m_isSimulatorMode = true
+        m_cameraState = CameraState()
+
+        m_cameraState.whiteBalance = 5600
+        m_cameraState.tint = 10
+        m_cameraState.shutterAngle = 180.0
+        m_cameraState.ISO = 800
+        m_cameraState.fStopIndex = 13
+        m_cameraState.reel = 1
+        m_cameraState.scene = "1"
+        m_cameraState.takeNumber = 1
+        m_cameraState.slateName = "A001"
+        m_cameraState.timecode = "01:00:00:00"
+        m_cameraState.mediaStatuses = [CCUPacketTypes.MediaStatus.Ready, CCUPacketTypes.MediaStatus.Ready]
+        m_cameraState.cardStatuses[0].cardStatus = CCUPacketTypes.MediaStatus.Ready
+        m_cameraState.cardStatuses[0].remainingRecordTime = "02:30:00"
+        m_cameraState.cardStatuses[1].cardStatus = CCUPacketTypes.MediaStatus.Ready
+        m_cameraState.cardStatuses[1].remainingRecordTime = "01:45:00"
+        m_cameraState.remainingTimeStrings = ["02:30:00", "01:45:00"]
+        m_cameraState.transportInfo.transportMode = CCUPacketTypes.MediaTransportMode.Preview
+        m_cameraState.transportInfo.disk1Active = true
+        m_cameraState.recordingFormatData.offSpeedFrameRate = 24
+
+        m_connectionStatus = ConnectionStatusFlags.kPower
+            | ConnectionStatusFlags.kConnected
+            | ConnectionStatusFlags.kPaired
+            | ConnectionStatusFlags.kVersionsVerified
+            | ConnectionStatusFlags.kInitialPayloadReceived
+            | ConnectionStatusFlags.kCameraReady
+
+        m_initialConnectionToUIDelegate?.transitionToCameraControl()
     }
     
     public func updateAllUI() {
@@ -147,6 +182,9 @@ public class CameraControlInterface:
     }
 
     public func getCameraName() -> String {
+        if m_isSimulatorMode {
+            return "Simulated Camera"
+        }
         return m_peripheralInterface?.getPeripheral()?.name ?? "Blackmagic Design Camera"
     }
 
@@ -329,10 +367,15 @@ public class CameraControlInterface:
 
     // PacketEncodedDelegate methods
     func onCCUPacketEncoded(_ data: Data) {
+        if m_isSimulatorMode {
+            m_packetReader.readCCUPacket(data)
+            return
+        }
         m_peripheralInterface?.sendPacket(data, BMDCameraServices.kMainService, BMDCameraCharacteristics.kOutgoingCCU)
     }
 
     func onPowerPacketEncoded(_ data: Data) {
+        if m_isSimulatorMode { return }
         m_peripheralInterface?.sendPacket(data, BMDCameraServices.kMainService, BMDCameraCharacteristics.kCameraStatus)
     }
 
